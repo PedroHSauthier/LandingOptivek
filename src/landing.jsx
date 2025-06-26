@@ -76,7 +76,7 @@ const TrizzWebsite = () => {
         'Integrações com Excel e Links',
         'Alto controle sobre automações'
       ],
-      price: 'R$ 35,90 - 49,90',
+      price: 'R$ 35,90',
       audience: 'Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo',
       icon: <Bot className="w-8 h-8" />,
       gradient: 'from-cyan-500/10 to-blue-500/10',
@@ -95,7 +95,7 @@ const TrizzWebsite = () => {
         'Templates personalizáveis'
       ],
       price: 'R$ 20,00 (Beta)',
-      originalPrice: 'R$ 49,90 - 69,90',
+      originalPrice: 'R$ 49,90',
       audience: 'Profissionais do ramo financeiro que querem um nível acima de personalização',
       icon: <Database className="w-8 h-8" />,
       gradient: 'from-green-500/10 to-cyan-500/10',
@@ -113,7 +113,7 @@ const TrizzWebsite = () => {
         'Suporte prioritário',
         'Atualizações gratuitas'
       ],
-      price: 'R$ 59,90',
+      price: 'R$ 54,90',
       savings: 'Economia de R$ 30,00',
       audience: 'Profissionais que precisam de automação completa e controle financeiro',
       icon: <Cog className="w-8 h-8" />,
@@ -391,7 +391,7 @@ const TrizzWebsite = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+              <div className="mt-16 p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
                   <Star className="w-5 h-5 text-yellow-400" />
                   <span className="font-semibold text-cyan-400">Garantia Exclusiva</span>
@@ -411,12 +411,9 @@ const TrizzWebsite = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Sobre</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-cyan-400">Minha História</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
                 <p>
                   Começei logo após o ensino médio, quando a pandemia me levou ao mundo dos códigos e telas. 
                   O que começou como um hábito para ocupar a mente, rapidamente se transformou em curiosidade 
@@ -438,15 +435,15 @@ const TrizzWebsite = () => {
                 <div className="bg-gray-800/50 p-4 rounded-lg border border-green-500/20">
                   <p className="text-sm text-gray-300">
                     <CheckCircle className="w-4 h-4 text-green-400 inline mr-2" />
-                    Ao comprar qualquer produto digital, você tem direito às próximas <strong>3 grandes versões</strong> 
-                    e pelo menos <strong>5 versões menores</strong> sem custo adicional.
+                    Ao comprar qualquer produto digital, você tem direito às próximas <strong>3 grandes versões </strong> 
+                     e pelo menos <strong>5 versões menores</strong> sem custo adicional.
                   </p>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-blue-400">Impacto Humano</h3>
+              <h3 className="mt-6 text-2xl font-semibold mb-6 text-blue-400">Impacto Humano</h3>
               <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
                 <p>
                   Meu foco não é apenas no empresarial, mas sim no <strong className="text-white">impacto humano</strong>. 
@@ -617,7 +614,7 @@ const TrizzWebsite = () => {
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">Automação Municipal</h3>
+                    <h3 className="text-xl font-semibold">Automação na SINNC Sistemas</h3>
                     <p className="text-gray-400">Requisição de Insumos</p>
                   </div>
                 </div>
@@ -654,10 +651,10 @@ const TrizzWebsite = () => {
               <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
                   <Users className="w-6 h-6 text-cyan-400" />
-                  <h4 className="font-semibold">Cliente Satisfeito</h4>
+                  <h4 className="font-semibold">"Dica de um colega"</h4>
                 </div>
                 <blockquote className="text-gray-300 italic mb-4">
-                  "Cleverson, meu colega que já experimentou as 2 ferramentas (App e Planilha), 
+                  "Meu colega que já experimentou as 2 ferramentas (App e Planilha), 
                   foi quem me incentivou a comercializar essas ferramentas. Colaborador e amigo 
                   que me motivou a transformar ideias em produtos reais."
                 </blockquote>
@@ -667,7 +664,7 @@ const TrizzWebsite = () => {
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-sm text-gray-400">Cleverson - Colega de trabalho</span>
+                  <span className="text-sm text-gray-400">"Útil" - Cleverson - O Meu Colega de trabalho</span>
                 </div>
               </div>
 
