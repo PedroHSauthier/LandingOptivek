@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "title": "Planilha de Controle de Despesas",
+    "description": "Planilha criada com Google Sheets para controlar despesas, altamente personalizável, com diversas funções personalizadas criadas puramente para a Planilha.",
+    "image": "https://i.imgur.com/pJjzJRW.png",
+    "images": [
+      "https://i.imgur.com/pJjzJRW.png",
+      "https://i.imgur.com/OtYWBnA.png",
+      "https://i.imgur.com/meAQlxv.png",
+      "https://i.imgur.com/HZVgjLX.png"
+    ],
+    "tags": ["Google Sheets", "Apps Scripts", "JavaScript", "HTML", "CSS"],
+    "repo": "#",
+    "demo": "https://docs.google.com/spreadsheets/d/1kzDqb4No62976JRQyn4DwS7Dl-avvzeWQDHS5_3rbQY/edit?usp=sharing"
+  },
+  {
+    "id": 2,
+    "title": "Aplicativo Macro Suite",
+    "description": "Aplicativo criado para automatizar tarefas, como: abrir aplicativos, clicar em botões, digitar texto, integrado com o Excel.",
+    "image": "https://i.imgur.com/u1uy032.png",
+    "images": [
+      "https://i.imgur.com/u1uy032.png",
+      "https://i.imgur.com/uSmpbiN.png",
+      "https://i.imgur.com/kvDgUPc.png",
+      "https://i.imgur.com/vH5Ugw2.png"
+    ],
+    "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
+    "repo": "#",
+    "demo": "#"
+  },
+  {
+    "id": 3,
+    "title": "Script de Lotes de Inconsistêcias",
+    "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
+    "image": "https://i.imgur.com/4rG9voI.png",
+    "images": [
+      "https://i.imgur.com/4rG9voI.png",
+      "https://i.imgur.com/wv6co0F.png"
+    ],
+    "tags": ["Python", "Tkinter", "Pandas", "Excel"],
+    "repo": "https://github.com/PedroHSauthier/Lotes-Project.git",
+    "demo": "#"
+  }
+]
