@@ -297,8 +297,12 @@ const TrizzWebsite = () => {
   );
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
-      <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
+    <div className={darkMode ? 'dark' : ''}>
+      <div className={`min-h-screen transition-colors duration-300 ${
+        darkMode 
+          ? 'bg-black text-white' 
+          : 'bg-white text-gray-900'
+      }`}>
       <style>{`
         .drop-shadow-glow {
           filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
@@ -320,7 +324,11 @@ const TrizzWebsite = () => {
       `}</style>
       {/* Navigation */}
       <nav
-        className={`!fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
+        className={`fixed top-0 w-full backdrop-blur-md border-b z-40 ${
+          darkMode 
+            ? 'bg-black/90 border-gray-800' 
+            : 'bg-white/90 border-gray-200'
+        }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
@@ -350,7 +358,9 @@ const TrizzWebsite = () => {
                   className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                     activeSection === item.id 
                       ? 'text-cyan-400 drop-shadow-glow' 
-                      : 'text-gray-300 hover:text-white hover:drop-shadow-sm'
+                      : darkMode 
+                        ? 'text-gray-300 hover:text-white hover:drop-shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900 hover:drop-shadow-sm'
                   }`}
                 >
                   {item.label}
@@ -381,7 +391,9 @@ const TrizzWebsite = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-gray-800">
+            <div className={`md:hidden py-4 border-t ${
+              darkMode ? 'border-gray-800' : 'border-gray-200'
+            }`}>
               {[
                 { id: 'home', label: 'Início' },
                 { id: 'about', label: 'Sobre' },
@@ -395,7 +407,9 @@ const TrizzWebsite = () => {
                   className={`block w-full text-left py-2 px-4 text-sm font-medium transition-colors ${
                     activeSection === item.id 
                       ? 'text-cyan-400' 
-                      : 'text-gray-300 hover:text-white'
+                      : darkMode 
+                        ? 'text-gray-300 hover:text-white'
+                        : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
                   {item.label}
@@ -437,13 +451,17 @@ const TrizzWebsite = () => {
                 </div>
                 
                 <div className="space-y-3 mb-8">
-                  <p className="text-xl sm:text-2xl font-semibold text-white">
+                  <p className={`text-xl sm:text-2xl font-semibold ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                     Pedro Henrique Sauthier
                   </p>
                   <p className="text-lg text-cyan-400 font-medium">
                     Analista de Dados e Automação
                   </p>
-                  <p className="text-lg text-gray-300 leading-relaxed">
+                  <p className={`text-lg leading-relaxed ${
+                    darkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
                     Automatize com controle. Simplifique com inteligência.
                   </p>
                 </div>
@@ -465,7 +483,9 @@ const TrizzWebsite = () => {
                   </button>
                 </div>
 
-                <div className="flex items-center gap-6 text-sm text-gray-400">
+                <div className={`flex items-center gap-6 text-sm ${
+                  darkMode ? 'text-gray-400' : 'text-gray-500'
+                }`}>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                     <span>{isOnline ? 'Online agora' : 'Não online no momento'}</span>
@@ -481,53 +501,89 @@ const TrizzWebsite = () => {
             {/* Right Content - Statistics/Benefits */}
             <div className="lg:pl-8">
               <div className="grid grid-cols-2 gap-6">
-                <div className="group bg-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/10">
+                <div className={`group p-6 rounded-xl border transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/10 ${
+                  darkMode 
+                    ? 'bg-gray-900/50 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-white border-gray-200 hover:border-cyan-500/50 shadow-sm'
+                }`}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-cyan-500/20 rounded-lg group-hover:bg-cyan-500/30 transition-colors">
+                    <div className={`p-2 rounded-lg transition-colors ${
+                      darkMode 
+                        ? 'bg-cyan-500/20 group-hover:bg-cyan-500/30' 
+                        : 'bg-cyan-100 group-hover:bg-cyan-200'
+                    }`}>
                       <Clock className="w-6 h-6 text-cyan-400" />
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">69%</div>
-                  <div className="text-sm text-gray-300">Redução de tempo em tarefas repetitivas</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>69%</div>
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Redução de tempo em tarefas repetitivas</div>
                 </div>
 
-                <div className="group bg-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-green-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/10">
+                <div className={`group p-6 rounded-xl border transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-green-500/10 ${
+                  darkMode 
+                    ? 'bg-gray-900/50 border-gray-700 hover:border-green-500/50' 
+                    : 'bg-white border-gray-200 hover:border-green-500/50 shadow-sm'
+                }`}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-green-500/20 rounded-lg group-hover:bg-green-500/30 transition-colors">
+                    <div className={`p-2 rounded-lg transition-colors ${
+                      darkMode 
+                        ? 'bg-green-500/20 group-hover:bg-green-500/30' 
+                        : 'bg-green-100 group-hover:bg-green-200'
+                    }`}>
                       <Users className="w-6 h-6 text-green-400" />
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">100%</div>
-                  <div className="text-sm text-gray-300">Clientes satisfeitos até o momento</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>100%</div>
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Clientes satisfeitos até o momento</div>
                 </div>
 
-                <div className="group bg-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10">
+                <div className={`group p-6 rounded-xl border transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10 ${
+                  darkMode 
+                    ? 'bg-gray-900/50 border-gray-700 hover:border-blue-500/50' 
+                    : 'bg-white border-gray-200 hover:border-blue-500/50 shadow-sm'
+                }`}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-blue-500/20 rounded-lg group-hover:bg-blue-500/30 transition-colors">
+                    <div className={`p-2 rounded-lg transition-colors ${
+                      darkMode 
+                        ? 'bg-blue-500/20 group-hover:bg-blue-500/30' 
+                        : 'bg-blue-100 group-hover:bg-blue-200'
+                    }`}>
                       <Cog className="w-6 h-6 text-blue-400" />
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">3+</div>
-                  <div className="text-sm text-gray-300">Versões futuras gratuitas garantidas</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>3+</div>
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Versões futuras gratuitas garantidas</div>
                 </div>
 
-                <div className="group bg-gray-900/50 p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10">
+                <div className={`group p-6 rounded-xl border transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 ${
+                  darkMode 
+                    ? 'bg-gray-900/50 border-gray-700 hover:border-purple-500/50' 
+                    : 'bg-white border-gray-200 hover:border-purple-500/50 shadow-sm'
+                }`}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors">
+                    <div className={`p-2 rounded-lg transition-colors ${
+                      darkMode 
+                        ? 'bg-purple-500/20 group-hover:bg-purple-500/30' 
+                        : 'bg-purple-100 group-hover:bg-purple-200'
+                    }`}>
                       <CheckCircle className="w-6 h-6 text-purple-400" />
                     </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">0</div>
-                  <div className="text-sm text-gray-300">Custo de implementação inicial</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>0</div>
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Custo de implementação inicial</div>
                 </div>
               </div>
 
-              <div className="mt-16 p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300">
+              <div className={`mt-16 p-6 rounded-xl border transition-all duration-300 ${
+                darkMode 
+                  ? 'bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20 hover:border-cyan-500/40' 
+                  : 'bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200 hover:border-cyan-300'
+              }`}>
                 <div className="flex items-center gap-3 mb-3">
                   <Star className="w-5 h-5 text-yellow-400" />
                   <span className="font-semibold text-cyan-400">Garantia Exclusiva</span>
                 </div>
-                <p className="text-sm text-gray-300">
+                <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   Controle total sobre suas ferramentas com atualizações gratuitas e suporte personalizado incluído.
                 </p>
               </div>
@@ -537,21 +593,25 @@ const TrizzWebsite = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-4 sm:px-8 md:px-12 bg-gray-900/50">
+      <section id="about" className={`py-16 px-4 sm:px-8 md:px-12 ${
+        darkMode ? 'bg-gray-900/50' : 'bg-gray-50'
+      }`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Sobre</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-cyan-400">Minha História</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
+              <div className={`space-y-4 leading-relaxed mb-8 ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}>
                 <p>
                   Começei logo após o ensino médio, quando a pandemia me levou ao mundo dos códigos e telas. 
                   O que começou como um hábito para ocupar a mente, rapidamente se transformou em curiosidade 
                   e paixão pela programação.
                 </p>
                 <p>
-                  Atualmente estudo <strong className="text-white">Análise e Desenvolvimento de Sistemas na UTFPR</strong> (turma 2023) 
+                  Atualmente estudo <strong className={darkMode ? 'text-white' : 'text-gray-900'}>Análise e Desenvolvimento de Sistemas na UTFPR</strong> (turma 2023) 
                   no período noturno, para continuar trabalhando como suporte técnico na SINNC SISTEMAS e CERTA SISTEMAS.
                 </p>
                 <p>
@@ -563,8 +623,14 @@ const TrizzWebsite = () => {
 
               <div className="mt-8">
                 <h4 className="text-lg font-semibold mb-4 text-green-400">Garantia Exclusiva</h4>
-                <div className="bg-gray-800/50 p-4 rounded-lg border border-green-500/20">
-                  <p className="text-sm text-gray-300">
+                <div className={`p-4 rounded-lg border ${
+                  darkMode 
+                    ? 'bg-gray-800/50 border-green-500/20' 
+                    : 'bg-green-50 border-green-200'
+                }`}>
+                  <p className={`text-sm ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
                     <CheckCircle className="w-4 h-4 text-green-400 inline mr-2" />
                     Ao comprar qualquer produto digital, você tem direito às próximas <strong>3 grandes versões </strong> 
                      e pelo menos <strong>5 versões menores</strong> sem custo adicional.
@@ -575,9 +641,11 @@ const TrizzWebsite = () => {
 
             <div>
               <h3 className="mt-6 text-2xl font-semibold mb-6 text-blue-400">Impacto Humano</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed mb-8">
+              <div className={`space-y-4 leading-relaxed mb-8 ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}>
                 <p>
-                  Meu foco não é apenas no empresarial, mas sim no <strong className="text-white">impacto humano</strong>. 
+                  Meu foco não é apenas no empresarial, mas sim no <strong className={darkMode ? 'text-white' : 'text-gray-900'}>impacto humano</strong>. 
                   Quero ajudar profissionais de suporte, testes e tantos outros que não aguentam mais 
                   repetir a mesma tarefa toda hora.
                 </p>
@@ -589,43 +657,81 @@ const TrizzWebsite = () => {
               </div>
 
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Code className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">Python</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Code className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Python</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Database className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">Sheets</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Database className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Sheets</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Cog className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">JavaScript</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Cog className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>JavaScript</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Globe className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">Java</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Globe className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Java</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <BarChart3 className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">PostgreSQL</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <BarChart3 className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>PostgreSQL</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Zap className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">App Script</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Zap className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>App Script</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <ExternalLink className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">Insomnia</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <ExternalLink className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>Insomnia</div>
                 </div>
-                <div className="text-center p-3 bg-gray-800/30 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105">
-                  <Users className="w-6 h-6 text-gray-400 mb-2 mx-auto" />
-                  <div className="text-sm text-gray-300">C</div>
+                <div className={`text-center p-3 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 ${
+                  darkMode 
+                    ? 'bg-gray-800/30 border-gray-700 hover:border-cyan-500/50' 
+                    : 'bg-gray-100 border-gray-200 hover:border-cyan-500/50'
+                }`}>
+                  <Users className={`w-6 h-6 mb-2 mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>C</div>
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20">
+              <div className={`mt-8 p-6 rounded-xl border ${
+                darkMode 
+                  ? 'bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20' 
+                  : 'bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200'
+              }`}>
                 <h4 className="font-semibold mb-2 text-cyan-400">Formação & Experiência</h4>
-                <ul className="text-sm text-gray-300 space-y-1">
+                <ul className={`text-sm space-y-1 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   <li>• Universidade Exemplo - Curso A (2020)</li>
                   <li>• Instituto Fictício - Curso B (2022)</li>
                   <li>• 3 anos de experiência em atendimento ao cliente</li>
@@ -644,7 +750,9 @@ const TrizzWebsite = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Produtos</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className={`text-lg max-w-2xl mx-auto ${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            }`}>
               Soluções sob medida para profissionais que buscam controle total sobre suas ferramentas de trabalho
             </p>
           </div>
@@ -654,10 +762,12 @@ const TrizzWebsite = () => {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-full border text-sm transition-colors ${
+                className={`px-4 py-2 rounded-full border text-sm font-medium transition-all duration-300 ${
                   selectedTag === tag
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-transparent'
-                    : 'bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-transparent shadow-lg'
+                    : darkMode 
+                      ? 'bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700'
+                      : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-50 hover:border-cyan-400 shadow-sm'
                 }`}
               >
                 {tag}
@@ -666,7 +776,11 @@ const TrizzWebsite = () => {
           </div>
           <div className="grid lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
-              <div key={product.id} className={`relative p-6 flex flex-col bg-gray-900/50 rounded-xl border ${product.border} hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl`}>
+              <div key={product.id} className={`relative p-6 flex flex-col rounded-xl border transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl ${
+                darkMode 
+                  ? `bg-gray-900/50 ${product.border} hover:border-opacity-100` 
+                  : 'bg-white border-gray-200 hover:border-cyan-400 shadow-lg hover:shadow-xl'
+              }`}>
                 {product.isPopular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
@@ -691,13 +805,17 @@ const TrizzWebsite = () => {
                   <p className="text-sm text-gray-400">{product.tagline}</p>
                 </div>
 
-                <p className="text-gray-300 mb-6 leading-relaxed">{product.description}</p>
+                <p className={`mb-6 leading-relaxed ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>{product.description}</p>
 
                 <div className="space-y-3 mb-6">
                   {product.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-gray-300">{feature}</span>
+                      <span className={`text-sm ${
+                        darkMode ? 'text-gray-300' : 'text-gray-700'
+                      }`}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -714,7 +832,9 @@ const TrizzWebsite = () => {
                   </div>
                 </div>
 
-                <div className="text-xs text-gray-400 mb-6 leading-relaxed">
+                <div className={`text-xs mb-6 leading-relaxed ${
+                  darkMode ? 'text-gray-400' : 'text-gray-600'
+                }`}>
                   <strong>Ideal para:</strong> {product.audience}
                 </div>
 
@@ -745,13 +865,19 @@ const TrizzWebsite = () => {
           </div>
 
           <div className="mt-12 text-center">
-            <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-700 max-w-2xl mx-auto">
+            <div className={`p-6 rounded-xl border max-w-2xl mx-auto ${
+              darkMode 
+                ? 'bg-gray-900/50 border-gray-700' 
+                : 'bg-white border-gray-200 shadow-lg'
+            }`}>
               <h3 className="text-lg font-semibold mb-3 text-cyan-400">Formas de Pagamento</h3>
               <div className="flex flex-wrap justify-center gap-4 mb-4">
                 {paymentQRCodes.map((item, idx) => (
                   <div key={idx} className="flex flex-col items-center">
                     <div
-                      className="no-invert w-40 h-40 flex items-center justify-center border border-gray-700 rounded-lg"
+                      className={`no-invert w-40 h-40 flex items-center justify-center border rounded-lg ${
+                        darkMode ? 'border-gray-700' : 'border-gray-300'
+                      }`}
                       style={
                         item.bgColor
                           ? { backgroundColor: hexToRgba(item.bgColor, item.bgOpacity ?? 1) }
@@ -765,14 +891,18 @@ const TrizzWebsite = () => {
                       />
                     </div>
                     {item.hint && (
-                      <span className="mt-1 text-xs text-gray-400 text-center">
+                      <span className={`mt-1 text-xs text-center ${
+                        darkMode ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
                         {item.hint}
                       </span>
                     )}
                   </div>
                 ))}
               </div>
-              <div className="text-sm text-gray-400">
+              <div className={`text-sm ${
+                darkMode ? 'text-gray-400' : 'text-gray-600'
+              }`}>
                 💡 <strong>Consultoria personalizada:</strong> Em breve ofereceremos serviços de consultoria e desenvolvimento customizado
               </div>
             </div>
@@ -781,7 +911,9 @@ const TrizzWebsite = () => {
       </section>
 
       {/* Cases Section */}
-      <section id="cases" className="py-16 px-4 sm:px-8 md:px-12 bg-gray-900/50">
+      <section id="cases" className={`py-16 px-4 sm:px-8 md:px-12 ${
+        darkMode ? 'bg-gray-900/50' : 'bg-gray-50'
+      }`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Cases de Sucesso</h2>
@@ -790,18 +922,26 @@ const TrizzWebsite = () => {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="bg-gray-800/50 p-8 rounded-xl border border-gray-700">
+              <div className={`p-8 rounded-xl border ${
+                darkMode 
+                  ? 'bg-gray-800/50 border-gray-700' 
+                  : 'bg-white border-gray-200 shadow-lg'
+              }`}>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold">Automação na SINNC Sistemas</h3>
-                    <p className="text-gray-400">Requisição de Insumos</p>
+                    <h3 className={`text-xl font-semibold ${
+                      darkMode ? 'text-white' : 'text-gray-900'
+                    }`}>Automação na SINNC Sistemas</h3>
+                    <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Requisição de Insumos</p>
                   </div>
                 </div>
 
-                <div className="space-y-4 text-gray-300">
+                <div className={`space-y-4 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   <p>
                     <strong className="text-cyan-400">Situação:</strong> 2-3 pessoas dividiam a quantidade e passavam 
                     quase um dia de trabalho inserindo dados de Excel no sistema, medicamento por medicamento.
@@ -816,26 +956,42 @@ const TrizzWebsite = () => {
                   </p>
                 </div>
 
-                <div className="mt-6 p-4 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                <div className={`mt-6 p-4 rounded-lg border ${
+                  darkMode 
+                    ? 'bg-cyan-500/10 border-cyan-500/20' 
+                    : 'bg-cyan-50 border-cyan-200'
+                }`}>
                   <div className="flex items-center gap-2 text-cyan-400 mb-2">
                     <Clock className="w-4 h-4" />
                     <span className="font-semibold">Economia de Tempo</span>
                   </div>
-                  <div className="text-2xl font-bold text-white">
+                  <div className={`text-2xl font-bold ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                     De 8 horas → 2h30min
                   </div>
-                  <div className="text-sm text-gray-400">Redução de 69% no tempo de trabalho</div>
+                  <div className={`text-sm ${
+                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>Redução de 69% no tempo de trabalho</div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+              <div className={`p-6 rounded-xl border ${
+                darkMode 
+                  ? 'bg-gray-800/50 border-gray-700' 
+                  : 'bg-white border-gray-200 shadow-lg'
+              }`}>
                 <div className="flex items-center gap-3 mb-4">
                   <Users className="w-6 h-6 text-cyan-400" />
-                  <h4 className="font-semibold">"Dica de um colega"</h4>
+                  <h4 className={`font-semibold ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>"Dica de um colega"</h4>
                 </div>
-                <blockquote className="text-gray-300 italic mb-4">
+                <blockquote className={`italic mb-4 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   "Meu colega que já experimentou as 2 ferramentas (App e Planilha), 
                   foi quem me incentivou a comercializar essas ferramentas. Colaborador e amigo 
                   que me motivou a transformar ideias em produtos reais."
@@ -846,13 +1002,21 @@ const TrizzWebsite = () => {
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-sm text-gray-400">"Útil" - Cleverson - O Meu Colega de trabalho</span>
+                  <span className={`text-sm ${
+                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>"Útil" - Cleverson - O Meu Colega de trabalho</span>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-green-500/10 to-cyan-500/10 p-6 rounded-xl border border-green-500/20">
+              <div className={`p-6 rounded-xl border ${
+                darkMode 
+                  ? 'bg-gradient-to-br from-green-500/10 to-cyan-500/10 border-green-500/20' 
+                  : 'bg-gradient-to-br from-green-50 to-cyan-50 border-green-200'
+              }`}>
                 <h4 className="font-semibold mb-3 text-green-400">Outros Projetos</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
+                <ul className={`space-y-2 text-sm ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400" />
                     Projetos especializados em destaque no portfólio
@@ -890,7 +1054,9 @@ const TrizzWebsite = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Contato</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <p className={`text-lg max-w-2xl mx-auto ${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            }`}>
               Entre em contato para tirar dúvidas, solicitar demonstração ou contratar nossos produtos
             </p>
           </div>
@@ -900,31 +1066,53 @@ const TrizzWebsite = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-6 text-cyan-400">Informações de Contato</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-4 p-4 bg-gray-900/50 rounded-lg border border-gray-700 hover:border-cyan-500/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20">
+                  <div className={`flex items-center gap-4 p-4 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg ${
+                    darkMode 
+                      ? 'bg-gray-900/50 border-gray-700 hover:border-cyan-500/50 hover:shadow-cyan-500/20' 
+                      : 'bg-white border-gray-200 hover:border-cyan-400 hover:shadow-cyan-400/20'
+                  }`}>
                     <Mail className="w-6 h-6 text-cyan-400" />
                     <div>
-                      <p className="font-medium">Email</p>
-                      <a href="mailto:pedrosauthier.trizz@gmail.com" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                      <p className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</p>
+                      <a href="mailto:pedrosauthier.trizz@gmail.com" className={`transition-colors ${
+                        darkMode 
+                          ? 'text-gray-300 hover:text-cyan-400' 
+                          : 'text-gray-700 hover:text-cyan-500'
+                      }`}>
                         pedrosauthier.trizz@gmail.com
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 bg-gray-900/50 rounded-lg border border-gray-700 hover:border-green-500/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/20">
+                  <div className={`flex items-center gap-4 p-4 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg ${
+                    darkMode 
+                      ? 'bg-gray-900/50 border-gray-700 hover:border-green-500/50 hover:shadow-green-500/20' 
+                      : 'bg-white border-gray-200 hover:border-green-400 hover:shadow-green-400/20'
+                  }`}>
                     <Phone className="w-6 h-6 text-green-400" />
                     <div>
-                      <p className="font-medium">WhatsApp</p>
-                      <a href="https://wa.me/5546991098005" className="text-gray-300 hover:text-green-400 transition-colors">
+                      <p className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>WhatsApp</p>
+                      <a href="https://wa.me/5546991098005" className={`transition-colors ${
+                        darkMode 
+                          ? 'text-gray-300 hover:text-green-400' 
+                          : 'text-gray-700 hover:text-green-500'
+                      }`}>
                         (46) 99109-8005
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 bg-gray-900/50 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
+                  <div className={`flex items-center gap-4 p-4 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg ${
+                    darkMode 
+                      ? 'bg-gray-900/50 border-gray-700 hover:border-blue-500/50 hover:shadow-blue-500/20' 
+                      : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-blue-400/20'
+                  }`}>
                     <Calendar className="w-6 h-6 text-blue-400" />
                     <div>
-                      <p className="font-medium">Horário de Atendimento</p>
-                      <div className="text-gray-300 text-sm">
+                      <p className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Horário de Atendimento</p>
+                      <div className={`text-sm ${
+                        darkMode ? 'text-gray-300' : 'text-gray-700'
+                      }`}>
                         {scheduleText.split(' | ').map((t, i) => (
                           <p key={i}>{t}</p>
                         ))}
@@ -971,7 +1159,11 @@ const TrizzWebsite = () => {
               </div>
             </div>
 
-            <div className="bg-gray-900/50 p-8 rounded-xl border border-gray-700">
+            <div className={`p-8 rounded-xl border ${
+              darkMode 
+                ? 'bg-gray-900/50 border-gray-700' 
+                : 'bg-white border-gray-200 shadow-lg'
+            }`}>
               <h3 className="text-xl font-semibold mb-6 text-green-400">Processo de Contratação</h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -979,8 +1171,12 @@ const TrizzWebsite = () => {
                     1
                   </div>
                   <div>
-                    <h4 className="font-medium mb-2">Primeiro Contato</h4>
-                    <p className="text-gray-300 text-sm">
+                    <h4 className={`font-medium mb-2 ${
+                      darkMode ? 'text-white' : 'text-gray-900'
+                    }`}>Primeiro Contato</h4>
+                    <p className={`text-sm ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       Entre em contato por email com suas necessidades e dúvidas
                     </p>
                   </div>
@@ -991,8 +1187,12 @@ const TrizzWebsite = () => {
                     2
                   </div>
                   <div>
-                    <h4 className="font-medium mb-2">Análise Gratuita</h4>
-                    <p className="text-gray-300 text-sm">
+                    <h4 className={`font-medium mb-2 ${
+                      darkMode ? 'text-white' : 'text-gray-900'
+                    }`}>Análise Gratuita</h4>
+                    <p className={`text-sm ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       Oferecemos reunião/análise gratuita para entender sua situação
                     </p>
                   </div>
@@ -1003,20 +1203,30 @@ const TrizzWebsite = () => {
                     3
                   </div>
                   <div>
-                    <h4 className="font-medium mb-2">Solução Personalizada</h4>
-                    <p className="text-gray-300 text-sm">
+                    <h4 className={`font-medium mb-2 ${
+                      darkMode ? 'text-white' : 'text-gray-900'
+                    }`}>Solução Personalizada</h4>
+                    <p className={`text-sm ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                       Desenvolvemos a solução ideal com total controle e personalização
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-lg border border-cyan-500/20">
+              <div className={`mt-8 p-4 rounded-lg border ${
+                darkMode 
+                  ? 'bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20' 
+                  : 'bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200'
+              }`}>
                 <div className="flex items-center gap-2 text-cyan-400 mb-2">
                   <Zap className="w-4 h-4" />
                   <span className="font-semibold">Resposta Rápida</span>
                 </div>
-                <p className="text-sm text-gray-300">
+                <p className={`text-sm ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   Respondemos todos os emails em até 24 horas durante nosso horário de atendimento
                 </p>
               </div>
@@ -1026,7 +1236,11 @@ const TrizzWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-8 md:px-12 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+      <footer className={`py-8 px-4 sm:px-8 md:px-12 border-t ${
+        darkMode 
+          ? 'bg-gray-900 border-gray-800' 
+          : 'bg-gray-100 border-gray-200'
+      }`}>
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
@@ -1038,10 +1252,10 @@ const TrizzWebsite = () => {
             </div>
             <span className="font-bold text-xl">TRIZZ</span>
           </div>
-          <p className="text-gray-400 text-sm mb-4">
+          <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
             Pedro Henrique Sauthier - Analista de Dados e Automação
           </p>
-          <p className="text-gray-500 text-xs">
+          <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
             © 2024 TRIZZ. Transformando repetição em automação.
           </p>
         </div>
