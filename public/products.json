@@ -71,14 +71,12 @@
     "tagline": "Planilhas Profissionais",
     "description": "Sistema avançado de planilhas financeiras com função exclusiva de soma dinâmica. Solução completa para gestão financeira profissional com recursos únicos no mercado.",
     "shortDescription": "Planilhas financeiras com soma dinâmica exclusiva",
-    "image": "/imgs/projeto-planilha.png",
+    "image": "https://i.imgur.com/pJjzJRW.png",
     "images": [
-      "/imgs/projeto-planilha.png",
-      "/imgs/projeto-planilha-dashboard.png",
-      "/imgs/projeto-planilha-soma.png",
-      "/imgs/projeto-planilha-relatorios.png",
-      "/imgs/projeto-planilha-categorias.png",
-      "/imgs/projeto-planilha-mobile.png"
+      "https://i.imgur.com/pJjzJRW.png",
+      "https://i.imgur.com/OtYWBnA.png",
+      "https://i.imgur.com/meAQlxv.png",
+      "https://i.imgur.com/HZVgjLX.png"
     ],
     "features": [
       "Função exclusiva Soma Dinâmica",
