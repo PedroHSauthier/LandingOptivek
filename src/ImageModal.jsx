@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const ImageModal = ({ images = [], onClose, initialIndex = 0 }) => {
   const [activeIndex, setActiveIndex] = useState(initialIndex);
   const [fading, setFading] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const changeIndex = (idx) => {
     if (idx === activeIndex) return;
@@ -12,16 +13,25 @@ const ImageModal = ({ images = [], onClose, initialIndex = 0 }) => {
   };
 
   useEffect(() => {
+    setVisible(true);
+  }, []);
+
+  useEffect(() => {
     if (fading) {
       const timer = setTimeout(() => setFading(false), 300);
       return () => clearTimeout(timer);
     }
   }, [activeIndex, fading]);
 
+  const handleClose = () => {
+    setVisible(false);
+    setTimeout(onClose, 300);
+  };
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
-      onClick={onClose}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
+      onClick={handleClose}
     >
       <div
         className="relative bg-gray-900 border border-cyan-500/50 rounded-xl p-4"
@@ -29,7 +39,7 @@ const ImageModal = ({ images = [], onClose, initialIndex = 0 }) => {
       >
         <button
           className="absolute top-2 right-2 text-gray-300 hover:text-white"
-          onClick={onClose}
+          onClick={handleClose}
         >
           &times;
         </button>
