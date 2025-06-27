@@ -89,7 +89,7 @@
       "Compatível com Google Sheets"
     ],
     "technologies": ["Google Sheets", "Apps Script", "JavaScript", "HTML/CSS"],
-    "tags": ["Planilhas", "Finanças", "Google Sheets", "Gestão"],
+    "tags": ["Planilhas", "Finanças", "Google Sheets", "Gestão", "Software"],
     "price": "R$ 19,90",
     "originalPrice": "R$ 49,90",
     "currency": "BRL",
@@ -152,7 +152,7 @@
       "Garantia estendida"
     ],
     "technologies": ["Python", "Google Sheets", "Apps Script", "Automação"],
-    "tags": ["Combo", "Automação", "Finanças", "Completo"],
+    "tags": ["Combo", "Automação", "Finanças", "Completo", "Software"],
     "price": "R$ 49,90",
     "currency": "BRL",
     "savings": "Economize R$ 44,00",
