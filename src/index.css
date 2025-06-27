@@ -9,7 +9,71 @@
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* Utility class to disable color inversion */
+/* Utility class para desabilitar inversão de cor quando necessário */
 .no-invert {
   filter: none !important;
+}
+
+/* Classes específicas para tema light */
+.light-theme {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.light-theme .navbar-light {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(229, 231, 235, 1);
+}
+
+.light-theme .text-light {
+  color: #374151;
+}
+
+.light-theme .text-light-secondary {
+  color: #6B7280;
+}
+
+.light-theme .bg-light-card {
+  background-color: #f9fafb;
+}
+
+.light-theme .border-light {
+  border-color: #e5e7eb;
+}
+
+/* Hover states para tema light */
+.light-theme .hover-light:hover {
+  background-color: #f3f4f6;
+}
+
+/* Classes específicas para tema dark */
+.dark-theme {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark-theme .navbar-dark {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(55, 65, 81, 1);
+}
+
+.dark-theme .text-dark {
+  color: #f9fafb;
+}
+
+.dark-theme .text-dark-secondary {
+  color: #d1d5db;
+}
+
+.dark-theme .bg-dark-card {
+  background-color: #111827;
+}
+
+.dark-theme .border-dark {
+  border-color: #374151;
+}
+
+/* Hover states para tema dark */
+.dark-theme .hover-dark:hover {
+  background-color: #1f2937;
 }
