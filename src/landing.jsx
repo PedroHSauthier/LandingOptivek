@@ -222,6 +222,7 @@ const TrizzWebsite = () => {
 
   const handleOption = (option) => {
     let reply = '';
+    let image = null;
     switch (option) {
       case '💬 Tirar dúvidas sobre produtos':
         reply = 'Envie suas dúvidas para pedrosauthier.trizz@gmail.com';
@@ -230,7 +231,8 @@ const TrizzWebsite = () => {
         reply = 'Agende uma demonstração pelo WhatsApp +55 46 99109-8005';
         break;
       case '🛒 Informações sobre preços':
-        reply = 'Para saber mais sobre preços, entre em contato por e-mail.';
+        reply = 'Acesse nosso catálogo do WhatsApp pelo QR code abaixo:';
+        image = '/images/qr-code/whatsapp-catalog-qrcode.png';
         break;
       default:
         reply = '';
@@ -238,7 +240,7 @@ const TrizzWebsite = () => {
     setChatMessages((msgs) => [
       ...msgs,
       { from: 'user', text: option },
-      { from: 'bot', text: reply },
+      { from: 'bot', text: reply, image },
     ]);
   };
 
@@ -267,6 +269,13 @@ const TrizzWebsite = () => {
             {chatMessages.map((m, idx) => (
               <div key={idx} className={`text-sm ${m.from === 'bot' ? 'text-gray-300' : 'text-right text-cyan-400'}`}>
                 {m.text}
+                {m.image && (
+                  <img
+                    src={m.image}
+                    alt="QR Code do catálogo do WhatsApp"
+                    className="w-32 h-32 mx-auto mt-2"
+                  />
+                )}
               </div>
             ))}
             <div className="space-y-2 mt-2">
@@ -948,7 +957,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                      <Github className="w-6 h-6 text-black group-hover:rotate-12 transition-transform filter-none" />
                     </a>
                   </div>
                   <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
