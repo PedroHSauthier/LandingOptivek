@@ -45,6 +45,15 @@
       "github": "https://github.com/PedroHSauthier",
       "email": "mailto:pedrosauthier.trizz@gmail.com"
     },
+    "availability": {
+      "monday": ["18:00", "23:00"],
+      "tuesday": ["18:00", "23:00"],
+      "wednesday": ["18:00", "23:00"],
+      "thursday": ["18:00", "23:00"],
+      "friday": ["18:00", "23:00"],
+      "saturday": ["09:00", "17:00"],
+      "sunday": []
+    },
     "theme": {
       "colors": {
         "primary": "cyan",
