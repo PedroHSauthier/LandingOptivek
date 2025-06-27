@@ -37,6 +37,7 @@ const TrizzWebsite = () => {
   );
   const [products, setProducts] = useState([]);
   const [selectedImages, setSelectedImages] = useState(null);
+  const [paymentQRCodes, setPaymentQRCodes] = useState([]);
 
   // Scroll to section
   const scrollToSection = (sectionId) => {
@@ -77,6 +78,28 @@ const TrizzWebsite = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch(() => {});
+
+    fetch('/config.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const codes = [];
+        if (data.payments?.pix) {
+          codes.push({
+            alt: data.payments.pix.alt || 'PIX',
+            src: data.payments.pix.qrCode,
+            hint: data.payments.pix.hint,
+          });
+        }
+        if (data.payments?.whatsapp) {
+          codes.push({
+            alt: data.payments.whatsapp.alt || 'WhatsApp',
+            src: data.payments.whatsapp.qrCode,
+            hint: data.payments.whatsapp.hint,
+          });
+        }
+        setPaymentQRCodes(codes);
+      })
+      .catch(() => {});
   }, []);
 
 
@@ -91,10 +114,6 @@ const TrizzWebsite = () => {
     { name: 'Insomnia', icon: '🧪' }
   ];
 
-  const paymentQRCodes = [
-    { alt: 'PIX', src: '/images/qr-code/pix-qrcode.png' },
-    { alt: 'WhatsApp', src: '/images/qr-code/whatsapp-catalog-qrcode.png' }
-  ];
 
   const iconMap = { Bot, Database, Cog, Zap };
 
@@ -183,9 +202,7 @@ const TrizzWebsite = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
-                <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-6 h-6" />
-              </div>
+              <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-10 h-10" />
               <span className="font-bold text-xl">TRIZZ</span>
             </div>
 
@@ -271,9 +288,7 @@ const TrizzWebsite = () => {
             <div className="text-left">
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center transform hover:rotate-12 transition-transform duration-300 overflow-hidden">
-                    <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-12 h-12" />
-                  </div>
+                  <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-20 h-20" />
                   <div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
                       TRIZZ
@@ -579,12 +594,18 @@ const TrizzWebsite = () => {
               <h3 className="text-lg font-semibold mb-3 text-cyan-400">Formas de Pagamento</h3>
               <div className="flex flex-wrap justify-center gap-4 mb-4">
                 {paymentQRCodes.map((item, idx) => (
-                  <img
-                    key={idx}
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-40 h-40 object-contain border border-gray-700 rounded-lg"
-                  />
+                  <div key={idx} className="flex flex-col items-center">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-40 h-40 object-contain border border-gray-700 rounded-lg"
+                    />
+                    {item.hint && (
+                      <span className="mt-1 text-xs text-gray-400 text-center">
+                        {item.hint}
+                      </span>
+                    )}
+                  </div>
                 ))}
               </div>
               <div className="text-sm text-gray-400">
@@ -837,9 +858,7 @@ const TrizzWebsite = () => {
       <footer className="py-8 px-4 sm:px-8 md:px-12 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
-              <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-6 h-6" />
-            </div>
+            <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-10 h-10" />
             <span className="font-bold text-xl">TRIZZ</span>
           </div>
           <p className="text-gray-400 text-sm mb-4">

@@ -22,14 +22,18 @@
     },
     "payments": {
       "pix": {
-        "qrCode": "/images/qr-codes/pix-qrcode.png",
+        "qrCode": "/images/qr-code/pix-qrcode.png",
         "key": "pedrosauthier.trizz@gmail.com",
-        "description": "PIX - TRIZZ"
+        "description": "PIX - TRIZZ",
+        "alt": "QR Code do PIX",
+        "hint": "Use o aplicativo do seu banco para escanear"
       },
       "whatsapp": {
-        "qrCode": "/images/qr-codes/whatsapp-catalog-qrcode.png", 
+        "qrCode": "/images/qr-code/whatsapp-catalog-qrcode.png",
         "catalogUrl": "https://wa.me/c/5546991098005",
-        "description": "Catálogo WhatsApp"
+        "description": "Catálogo WhatsApp",
+        "alt": "QR Code do catálogo do WhatsApp",
+        "hint": "Aponte a câmera do WhatsApp para abrir o catálogo"
       }
     },
     "social": {
