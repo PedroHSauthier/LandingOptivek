@@ -320,9 +320,7 @@ const TrizzWebsite = () => {
       `}</style>
       {/* Navigation */}
       <nav
-        className={`${
-          darkMode ? 'fixed' : 'static'
-        } top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
+        className={`static top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
@@ -952,7 +950,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Github className="no-invert w-6 h-6 text-black dark:text-white group-hover:rotate-12 transition-transform" />
+                      <Github className="no-invert w-6 h-6 text-white dark:text-black group-hover:rotate-12 transition-transform" />
                     </a>
                   </div>
                   <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
