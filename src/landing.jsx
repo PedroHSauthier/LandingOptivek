@@ -320,7 +320,7 @@ const TrizzWebsite = () => {
       `}</style>
       {/* Navigation */}
       <nav
-        className={`fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
+        className={`!fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
