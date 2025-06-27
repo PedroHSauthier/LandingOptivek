@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+.light {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.light img,
+.light svg {
+  filter: invert(1) hue-rotate(180deg);
+}

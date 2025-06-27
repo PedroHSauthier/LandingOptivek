@@ -176,7 +176,7 @@ const TrizzWebsite = () => {
   );
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <div className={darkMode ? 'dark' : 'light'}>
       <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
       <style>{`
         .drop-shadow-glow {
@@ -487,7 +487,8 @@ const TrizzWebsite = () => {
               <div className="mt-8 p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20">
                 <h4 className="font-semibold mb-2 text-cyan-400">Formação & Experiência</h4>
                 <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• UTFPR - Análise e Desenvolvimento de Sistemas (2023)</li>
+                  <li>• Universidade Exemplo - Curso A (2020)</li>
+                  <li>• Instituto Fictício - Curso B (2022)</li>
                   <li>• 3 anos de experiência em atendimento ao cliente</li>
                   <li>• Suporte técnico SINNC SISTEMAS / CERTA SISTEMAS</li>
                   <li>• Mencionado em artigo científico</li>
@@ -511,7 +512,7 @@ const TrizzWebsite = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <div key={product.id} className={`relative p-6 bg-gray-900/50 rounded-xl border ${product.border} hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl`}>
+              <div key={product.id} className={`relative p-6 flex flex-col bg-gray-900/50 rounded-xl border ${product.border} hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl`}>
                 {product.isPopular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
@@ -563,7 +564,7 @@ const TrizzWebsite = () => {
                   <strong>Ideal para:</strong> {product.audience}
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-3 mt-auto">
                   <button className="group w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 flex items-center justify-center gap-2">
                     Ver Detalhes
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
