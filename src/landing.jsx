@@ -39,6 +39,21 @@ const TrizzWebsite = () => {
   const [selectedTag, setSelectedTag] = useState('Todos');
   const [selectedImages, setSelectedImages] = useState(null);
   const [paymentQRCodes, setPaymentQRCodes] = useState([]);
+  const [chatMessages, setChatMessages] = useState([
+    { from: 'bot', text: 'Olá! Como posso ajudar você hoje?' }
+  ]);
+
+  const hexToRgba = (hex, opacity = 1) => {
+    let c = hex.replace('#', '');
+    if (c.length === 3) {
+      c = c[0] + c[0] + c[1] + c[1] + c[2] + c[2];
+    }
+    const num = parseInt(c, 16);
+    const r = (num >> 16) & 255;
+    const g = (num >> 8) & 255;
+    const b = num & 255;
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  };
 
   // Scroll to section
   const scrollToSection = (sectionId) => {
@@ -89,6 +104,8 @@ const TrizzWebsite = () => {
             alt: data.payments.pix.alt || 'PIX',
             src: data.payments.pix.qrCode,
             hint: data.payments.pix.hint,
+            bgColor: data.payments.pix.bgColor,
+            bgOpacity: data.payments.pix.bgOpacity,
           });
         }
         if (data.payments?.whatsapp) {
@@ -96,6 +113,8 @@ const TrizzWebsite = () => {
             alt: data.payments.whatsapp.alt || 'WhatsApp',
             src: data.payments.whatsapp.qrCode,
             hint: data.payments.whatsapp.hint,
+            bgColor: data.payments.whatsapp.bgColor,
+            bgOpacity: data.payments.whatsapp.bgOpacity,
           });
         }
         setPaymentQRCodes(codes);
@@ -139,6 +158,28 @@ const TrizzWebsite = () => {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
 
+  const handleOption = (option) => {
+    let reply = '';
+    switch (option) {
+      case '💬 Tirar dúvidas sobre produtos':
+        reply = 'Envie suas dúvidas para pedrosauthier.trizz@gmail.com';
+        break;
+      case '📱 Solicitar demonstração':
+        reply = 'Agende uma demonstração pelo WhatsApp +55 46 99109-8005';
+        break;
+      case '🛒 Informações sobre preços':
+        reply = 'Para saber mais sobre preços, entre em contato por e-mail.';
+        break;
+      default:
+        reply = '';
+    }
+    setChatMessages((msgs) => [
+      ...msgs,
+      { from: 'user', text: option },
+      { from: 'bot', text: reply },
+    ]);
+  };
+
   const ChatWidget = () => (
     <div className={`fixed bottom-6 right-6 z-50 ${showChat ? 'w-80' : 'w-auto'}`}>
       {showChat ? (
@@ -153,27 +194,27 @@ const TrizzWebsite = () => {
                 <p className="text-xs text-gray-400">Online agora</p>
               </div>
             </div>
-            <button 
+            <button
               onClick={() => setShowChat(false)}
               className="text-gray-400 hover:text-white"
             >
               ×
             </button>
           </div>
-          <div className="p-4 space-y-3">
-            <div className="bg-gray-800 rounded-lg p-3">
-              <p className="text-sm text-gray-300">
-                Olá! Como posso ajudar você hoje?
-              </p>
-            </div>
-            <div className="space-y-2">
-              <button className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
+          <div className="p-4 space-y-3 max-h-80 overflow-y-auto">
+            {chatMessages.map((m, idx) => (
+              <div key={idx} className={`text-sm ${m.from === 'bot' ? 'text-gray-300' : 'text-right text-cyan-400'}`}>
+                {m.text}
+              </div>
+            ))}
+            <div className="space-y-2 mt-2">
+              <button onClick={() => handleOption('💬 Tirar dúvidas sobre produtos')} className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
                 💬 Tirar dúvidas sobre produtos
               </button>
-              <button className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
+              <button onClick={() => handleOption('📱 Solicitar demonstração')} className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
                 📱 Solicitar demonstração
               </button>
-              <button className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
+              <button onClick={() => handleOption('🛒 Informações sobre preços')} className="w-full text-left p-2 hover:bg-gray-800 rounded text-sm text-gray-300">
                 🛒 Informações sobre preços
               </button>
             </div>
@@ -224,7 +265,7 @@ const TrizzWebsite = () => {
                 <img
                   src="/images/trizz-logo.png"
                   alt="TRIZZ Logo"
-                  className="w-10 h-10 rounded-full bg-black dark:bg-gray-200 p-1"
+                  className="w-10 h-10 rounded-full bg-black p-1"
                 />
               </div>
               <span className="font-bold text-xl">TRIZZ</span>
@@ -316,7 +357,7 @@ const TrizzWebsite = () => {
                     <img
                       src="/images/trizz-logo.png"
                       alt="TRIZZ Logo"
-                      className="w-20 h-20 rounded-full bg-black dark:bg-gray-200 p-1"
+                      className="w-20 h-20 rounded-full bg-black p-1"
                     />
                   </div>
                   <div>
@@ -641,11 +682,20 @@ const TrizzWebsite = () => {
               <div className="flex flex-wrap justify-center gap-4 mb-4">
                 {paymentQRCodes.map((item, idx) => (
                   <div key={idx} className="flex flex-col items-center">
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      className="w-40 h-40 object-contain border border-gray-700 rounded-lg"
-                    />
+                    <div
+                      className="w-40 h-40 flex items-center justify-center border border-gray-700 rounded-lg"
+                      style={
+                        item.bgColor
+                          ? { backgroundColor: hexToRgba(item.bgColor, item.bgOpacity ?? 1) }
+                          : {}
+                      }
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
                     {item.hint && (
                       <span className="mt-1 text-xs text-gray-400 text-center">
                         {item.hint}
@@ -825,7 +875,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Linkedin className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                      <Linkedin className="w-6 h-6 text-[#0A66C2] group-hover:rotate-12 transition-transform" />
                     </a>
                   </div>
                   <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -835,7 +885,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                      <Github className="w-6 h-6 text-[#181717] group-hover:rotate-12 transition-transform" />
                     </a>
                   </div>
                   <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -845,7 +895,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Globe className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                      <Globe className="w-6 h-6 text-cyan-400 group-hover:rotate-12 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -914,7 +964,7 @@ const TrizzWebsite = () => {
               <img
                 src="/images/trizz-logo.png"
                 alt="TRIZZ Logo"
-                className="w-10 h-10 rounded-full bg-black dark:bg-gray-200 p-1"
+                className="w-10 h-10 rounded-full bg-black p-1"
               />
             </div>
             <span className="font-bold text-xl">TRIZZ</span>
