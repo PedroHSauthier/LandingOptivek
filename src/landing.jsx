@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Code, 
   Database, 
   BarChart3, 
@@ -22,13 +22,21 @@ import {
   Calendar,
   TrendingUp,
   Zap,
-  Globe
+  Globe,
+  Sun,
+  Moon
 } from 'lucide-react';
+import ImageModal from './ImageModal.jsx';
 
 const TrizzWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showChat, setShowChat] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    () => localStorage.getItem('theme') !== 'light'
+  );
+  const [products, setProducts] = useState([]);
+  const [selectedImages, setSelectedImages] = useState(null);
 
   // Scroll to section
   const scrollToSection = (sectionId) => {
@@ -64,66 +72,13 @@ const TrizzWebsite = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const products = [
-    {
-      id: 'appmacro',
-      name: 'AppMacro',
-      tagline: 'Automatização Inteligente',
-      description: 'Gerador de scripts para resolução de tarefas repetitivas com integrações avançadas.',
-      features: [
-        'Grava ações para repetição autônoma',
-        'Customização posterior gigantesca',
-        'Integrações com Excel e Links',
-        'Alto controle sobre automações'
-      ],
-      price: 'R$ 35,90',
-      originalPrice: 'R$ 49,90',
-      audience: 'Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo',
-      icon: <Bot className="w-8 h-8" />,
-      gradient: 'from-cyan-500/10 to-blue-500/10',
-      border: 'border-cyan-500/20',
-      hasDemo: true
-    },
-    {
-      id: 'dinamiky',
-      name: 'Dinamiky V0.2',
-      tagline: 'Planilhas Profissionais',
-      description: 'Sistema avançado de planilhas financeiras com função exclusiva de soma dinâmica.',
-      features: [
-        'Função exclusiva Soma Dinâmica',
-        'Nível profissional avançado',
-        'Múltiplas versões incluídas',
-        'Templates personalizáveis'
-      ],
-      price: 'R$ 19,90 (Beta)',
-      originalPrice: 'R$ 49,90',
-      audience: 'Profissionais do ramo financeiro que querem um nível acima de personalização',
-      icon: <Database className="w-8 h-8" />,
-      gradient: 'from-green-500/10 to-cyan-500/10',
-      border: 'border-green-500/20',
-      isBeta: true,
-      hasDemo: true
-    },
-    {
-      id: 'combo',
-      name: 'Pacote Completo',
-      tagline: 'Solução Integrada',
-      description: 'AppMacro + Dinamiky em um pacote especial com desconto exclusivo.',
-      features: [
-        'AppMacro Professional completo',
-        'Dinamiky com todas as versões',
-        'Suporte prioritário',
-        'Atualizações gratuitas'
-      ],
-      price: 'R$ 49,90',
-      savings: 'Economia de R$ 44,00',
-      audience: 'Profissionais que precisam de automação completa e controle financeiro',
-      icon: <Cog className="w-8 h-8" />,
-      gradient: 'from-blue-500/10 to-green-500/10',
-      border: 'border-blue-500/20',
-      isPopular: true
-    }
-  ];
+  useEffect(() => {
+    fetch('/products.json')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch(() => {});
+  }, []);
+
 
   const technologies = [
     { name: 'Python', icon: '🐍' },
@@ -135,6 +90,17 @@ const TrizzWebsite = () => {
     { name: 'PostgreSQL', icon: '🗄️' },
     { name: 'Insomnia', icon: '🧪' }
   ];
+
+  const paymentQRCodes = [
+    { alt: 'PIX', src: '/images/qr-code/pix-qrcode.png' },
+    { alt: 'WhatsApp', src: '/images/qr-code/whatsapp-catalog-qrcode.png' }
+  ];
+
+  const iconMap = { Bot, Database, Cog, Zap };
+
+  useEffect(() => {
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
   const ChatWidget = () => (
     <div className={`fixed bottom-6 right-6 z-50 ${showChat ? 'w-80' : 'w-auto'}`}>
@@ -191,7 +157,8 @@ const TrizzWebsite = () => {
   );
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className={darkMode ? 'dark' : ''}>
+      <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
       <style>{`
         .drop-shadow-glow {
           filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
@@ -212,12 +179,12 @@ const TrizzWebsite = () => {
         }
       `}</style>
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 z-40">
+      <nav className="fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
+              <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+                <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-6 h-6" />
               </div>
               <span className="font-bold text-xl">TRIZZ</span>
             </div>
@@ -251,6 +218,14 @@ const TrizzWebsite = () => {
               className="md:hidden p-2"
             >
               {isMenuOpen ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
+            </button>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 text-gray-300 hover:text-white"
+            >
+              {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
           </div>
 
@@ -296,8 +271,8 @@ const TrizzWebsite = () => {
             <div className="text-left">
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center transform hover:rotate-12 transition-transform duration-300">
-                    <span className="text-white font-bold text-2xl">T</span>
+                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center transform hover:rotate-12 transition-transform duration-300 overflow-hidden">
+                    <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-12 h-12" />
                   </div>
                   <div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
@@ -539,7 +514,9 @@ const TrizzWebsite = () => {
                 )}
 
                 <div className={`p-4 bg-gradient-to-br ${product.gradient} rounded-lg mb-6 text-center`}>
-                  <div className="text-cyan-400 mb-2">{product.icon}</div>
+                  {iconMap[product.icon] && (
+                    React.createElement(iconMap[product.icon], { className: 'w-8 h-8 text-cyan-400 mb-2' })
+                  )}
                   <h3 className="text-xl font-semibold mb-1">{product.name}</h3>
                   <p className="text-sm text-gray-400">{product.tagline}</p>
                 </div>
@@ -576,7 +553,16 @@ const TrizzWebsite = () => {
                     Ver Detalhes
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  
+
+                  {product.images && (
+                    <button
+                      onClick={() => setSelectedImages(product.images)}
+                      className="group w-full px-4 py-2 bg-cyan-500/10 text-cyan-300 rounded-lg hover:bg-cyan-500/20 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      Ver Imagens
+                    </button>
+                  )}
+
                   {product.hasDemo && (
                     <button className="group w-full px-4 py-2 border border-cyan-500 text-cyan-400 font-medium rounded-lg hover:bg-cyan-500 hover:text-white transition-all duration-300 hover:shadow-md hover:shadow-cyan-500/20 flex items-center justify-center gap-2">
                       <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -591,7 +577,16 @@ const TrizzWebsite = () => {
           <div className="mt-12 text-center">
             <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-700 max-w-2xl mx-auto">
               <h3 className="text-lg font-semibold mb-3 text-cyan-400">Formas de Pagamento</h3>
-              <p className="text-gray-300 mb-4">Aceitamos PIX para pagamento instantâneo e seguro</p>
+              <div className="flex flex-wrap justify-center gap-4 mb-4">
+                {paymentQRCodes.map((item, idx) => (
+                  <img
+                    key={idx}
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-40 h-40 object-contain border border-gray-700 rounded-lg"
+                  />
+                ))}
+              </div>
               <div className="text-sm text-gray-400">
                 💡 <strong>Consultoria personalizada:</strong> Em breve ofereceremos serviços de consultoria e desenvolvimento customizado
               </div>
@@ -839,11 +834,11 @@ const TrizzWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-8 md:px-12 bg-gray-900 border-t border-gray-800">
+      <footer className="py-8 px-4 sm:px-8 md:px-12 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">T</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+              <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-6 h-6" />
             </div>
             <span className="font-bold text-xl">TRIZZ</span>
           </div>
@@ -858,6 +853,10 @@ const TrizzWebsite = () => {
 
       {/* Chat Widget */}
       <ChatWidget />
+      {selectedImages && (
+        <ImageModal images={selectedImages} onClose={() => setSelectedImages(null)} />
+      )}
+    </div>
     </div>
   );
 };
