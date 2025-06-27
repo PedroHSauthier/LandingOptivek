@@ -8,3 +8,8 @@
 .light svg {
   filter: invert(1) hue-rotate(180deg);
 }
+
+/* Utility class to disable color inversion */
+.no-invert {
+  filter: none !important;
+}
