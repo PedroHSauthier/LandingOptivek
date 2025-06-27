@@ -36,6 +36,7 @@ const TrizzWebsite = () => {
     () => localStorage.getItem('theme') !== 'light'
   );
   const [products, setProducts] = useState([]);
+  const [selectedTag, setSelectedTag] = useState('Todos');
   const [selectedImages, setSelectedImages] = useState(null);
   const [paymentQRCodes, setPaymentQRCodes] = useState([]);
 
@@ -116,6 +117,23 @@ const TrizzWebsite = () => {
 
 
   const iconMap = { Bot, Database, Cog, Zap };
+
+  const availableTags = React.useMemo(() => {
+    const tags = products.flatMap((p) => p.tags || []);
+    const filtered = tags.filter((t) =>
+      ['hardware', 'software'].includes(t.toLowerCase())
+    );
+    return ['Todos', ...Array.from(new Set(filtered))];
+  }, [products]);
+
+  const filteredProducts = React.useMemo(() => {
+    if (selectedTag === 'Todos') return products;
+    return products.filter((p) =>
+      (p.tags || [])
+        .map((t) => t.toLowerCase())
+        .includes(selectedTag.toLowerCase())
+    );
+  }, [products, selectedTag]);
 
   useEffect(() => {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
@@ -202,7 +220,13 @@ const TrizzWebsite = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-10 h-10" />
+              <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
+                <img
+                  src="/images/trizz-logo.png"
+                  alt="TRIZZ Logo"
+                  className="w-10 h-10 rounded-full bg-black dark:bg-gray-200 p-1"
+                />
+              </div>
               <span className="font-bold text-xl">TRIZZ</span>
             </div>
 
@@ -288,7 +312,13 @@ const TrizzWebsite = () => {
             <div className="text-left">
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-6">
-                  <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-20 h-20" />
+                  <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
+                    <img
+                      src="/images/trizz-logo.png"
+                      alt="TRIZZ Logo"
+                      className="w-20 h-20 rounded-full bg-black dark:bg-gray-200 p-1"
+                    />
+                  </div>
                   <div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
                       TRIZZ
@@ -510,8 +540,23 @@ const TrizzWebsite = () => {
             </p>
           </div>
 
+          <div className="flex justify-center gap-2 mb-8">
+            {availableTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                className={`px-4 py-2 rounded-full border text-sm transition-colors ${
+                  selectedTag === tag
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-transparent'
+                    : 'bg-gray-800 text-gray-300 border-gray-600 hover:bg-gray-700'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
           <div className="grid lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <div key={product.id} className={`relative p-6 flex flex-col bg-gray-900/50 rounded-xl border ${product.border} hover:border-opacity-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl`}>
                 {product.isPopular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -773,30 +818,36 @@ const TrizzWebsite = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-6 text-blue-400">Redes Sociais</h3>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://www.linkedin.com/in/pedrosauthier/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/30"
-                  >
-                    <Linkedin className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
-                  </a>
-                  <a 
-                    href="https://github.com/PedroHSauthier"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-gray-500/30"
-                  >
-                    <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
-                  </a>
-                  <a 
-                    href="https://pedrohsauthier.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-3 bg-cyan-600 hover:bg-cyan-700 rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-cyan-500/30"
-                  >
-                    <Globe className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
-                  </a>
+                  <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
+                    <a
+                      href="https://www.linkedin.com/in/pedrosauthier/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
+                    >
+                      <Linkedin className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                    </a>
+                  </div>
+                  <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
+                    <a
+                      href="https://github.com/PedroHSauthier"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
+                    >
+                      <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                    </a>
+                  </div>
+                  <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
+                    <a
+                      href="https://pedrohsauthier.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
+                    >
+                      <Globe className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -859,7 +910,13 @@ const TrizzWebsite = () => {
       <footer className="py-8 px-4 sm:px-8 md:px-12 bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <img src="/images/trizz-logo.png" alt="TRIZZ Logo" className="w-10 h-10" />
+            <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
+              <img
+                src="/images/trizz-logo.png"
+                alt="TRIZZ Logo"
+                className="w-10 h-10 rounded-full bg-black dark:bg-gray-200 p-1"
+              />
+            </div>
             <span className="font-bold text-xl">TRIZZ</span>
           </div>
           <p className="text-gray-400 text-sm mb-4">
