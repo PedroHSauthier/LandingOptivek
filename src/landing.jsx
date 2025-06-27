@@ -369,9 +369,13 @@ const TrizzWebsite = () => {
             {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 text-black dark:text-white"
+              className="p-2"
             >
-              {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              {darkMode ? (
+                <Sun className="w-6 h-6 text-white" />
+              ) : (
+                <Moon className="w-6 h-6 text-black" />
+              )}
             </button>
           </div>
 
@@ -757,7 +761,7 @@ const TrizzWebsite = () => {
                       <img
                         src={item.src}
                         alt={item.alt}
-                        className="max-w-full max-h-full object-contain"
+                        className="no-invert max-w-full max-h-full object-contain"
                       />
                     </div>
                     {item.hint && (
