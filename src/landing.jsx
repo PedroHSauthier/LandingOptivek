@@ -369,7 +369,7 @@ const TrizzWebsite = () => {
             {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="p-2 text-gray-300 hover:text-white"
+              className="p-2 text-black dark:text-white"
             >
               {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
@@ -747,7 +747,7 @@ const TrizzWebsite = () => {
                 {paymentQRCodes.map((item, idx) => (
                   <div key={idx} className="flex flex-col items-center">
                     <div
-                      className="w-40 h-40 flex items-center justify-center border border-gray-700 rounded-lg"
+                      className="no-invert w-40 h-40 flex items-center justify-center border border-gray-700 rounded-lg"
                       style={
                         item.bgColor
                           ? { backgroundColor: hexToRgba(item.bgColor, item.bgOpacity ?? 1) }
