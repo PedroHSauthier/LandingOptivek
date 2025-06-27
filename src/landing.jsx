@@ -42,6 +42,9 @@ const TrizzWebsite = () => {
   const [chatMessages, setChatMessages] = useState([
     { from: 'bot', text: 'Olá! Como posso ajudar você hoje?' }
   ]);
+  const [availability, setAvailability] = useState(null);
+  const [isOnline, setIsOnline] = useState(false);
+  const [scheduleText, setScheduleText] = useState('');
 
   const hexToRgba = (hex, opacity = 1) => {
     let c = hex.replace('#', '');
@@ -54,6 +57,63 @@ const TrizzWebsite = () => {
     const b = num & 255;
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
   };
+
+  const buildScheduleText = (sch) => {
+    if (!sch) return '';
+    const weekDays = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'];
+    const ranges = weekDays.map((_, i) => sch[Object.keys(sch)[i]]);
+    const firstRange = ranges[0] && ranges[0].length === 2 ? `${ranges[0][0]} às ${ranges[0][1]}` : null;
+    const allEqual = ranges.every((r) => r && r[0] === ranges[0][0] && r[1] === ranges[0][1]);
+    const parts = [];
+    if (allEqual && firstRange) {
+      parts.push(`Seg-Sex: ${firstRange}`);
+    } else {
+      ranges.forEach((r, idx) => {
+        if (r && r.length === 2) parts.push(`${weekDays[idx]}: ${r[0]} às ${r[1]}`);
+      });
+    }
+    if (sch.saturday && sch.saturday.length === 2) {
+      parts.push(`Sábado: ${sch.saturday[0]} às ${sch.saturday[1]}`);
+    }
+    if (sch.sunday && sch.sunday.length === 2) {
+      parts.push(`Domingo: ${sch.sunday[0]} às ${sch.sunday[1]}`);
+    }
+    return parts.join(' | ');
+  };
+
+  useEffect(() => {
+    if (!availability) return;
+    const checkOnline = () => {
+      const now = new Date();
+      const day = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'long',
+      })
+        .format(now)
+        .toLowerCase();
+      const time = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'America/Sao_Paulo',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+        .format(now)
+        .split(':');
+      const currentMinutes = parseInt(time[0]) * 60 + parseInt(time[1]);
+      const range = availability[day];
+      if (range && range.length === 2) {
+        const [start, end] = range;
+        const startM = parseInt(start.split(':')[0]) * 60 + parseInt(start.split(':')[1]);
+        const endM = parseInt(end.split(':')[0]) * 60 + parseInt(end.split(':')[1]);
+        setIsOnline(currentMinutes >= startM && currentMinutes <= endM);
+      } else {
+        setIsOnline(false);
+      }
+    };
+    checkOnline();
+    const id = setInterval(checkOnline, 60000);
+    return () => clearInterval(id);
+  }, [availability]);
 
   // Scroll to section
   const scrollToSection = (sectionId) => {
@@ -118,6 +178,8 @@ const TrizzWebsite = () => {
           });
         }
         setPaymentQRCodes(codes);
+        setAvailability(data.availability || null);
+        setScheduleText(buildScheduleText(data.availability || null));
       })
       .catch(() => {});
   }, []);
@@ -191,7 +253,7 @@ const TrizzWebsite = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-white">Suporte TRIZZ</h4>
-                <p className="text-xs text-gray-400">Online agora</p>
+                <p className="text-xs text-gray-400">{isOnline ? 'Online agora' : 'Não online no momento'}</p>
               </div>
             </div>
             <button
@@ -219,7 +281,7 @@ const TrizzWebsite = () => {
               </button>
             </div>
             <div className="text-xs text-gray-500 text-center">
-              Seg-Sex: 18h às 23h | Sáb: 9h às 17h
+              {scheduleText}
             </div>
           </div>
         </div>
@@ -400,7 +462,7 @@ const TrizzWebsite = () => {
                 <div className="flex items-center gap-6 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span>Online agora</span>
+                    <span>{isOnline ? 'Online agora' : 'Não online no momento'}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
@@ -857,8 +919,9 @@ const TrizzWebsite = () => {
                     <div>
                       <p className="font-medium">Horário de Atendimento</p>
                       <div className="text-gray-300 text-sm">
-                        <p>Seg-Sex: 18:00 às 23:00</p>
-                        <p>Sábado: 09:00 às 17:00</p>
+                        {scheduleText.split(' | ').map((t, i) => (
+                          <p key={i}>{t}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -885,7 +948,7 @@ const TrizzWebsite = () => {
                       rel="noopener noreferrer"
                       className="group flex p-3 rounded-full bg-black dark:bg-gray-200 transition-all duration-300 hover:scale-110"
                     >
-                      <Github className="w-6 h-6 text-[#181717] group-hover:rotate-12 transition-transform" />
+                      <Github className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
                     </a>
                   </div>
                   <div className="p-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500">
