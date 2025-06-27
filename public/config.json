@@ -26,14 +26,18 @@
         "key": "pedrosauthier.trizz@gmail.com",
         "description": "PIX - TRIZZ",
         "alt": "QR Code do PIX",
-        "hint": "Use o aplicativo do seu banco para escanear"
+        "hint": "Use o aplicativo do seu banco para escanear",
+        "bgColor": "#ffffff",
+        "bgOpacity": 1
       },
       "whatsapp": {
         "qrCode": "/images/qr-code/whatsapp-catalog-qrcode.png",
         "catalogUrl": "https://wa.me/c/5546991098005",
         "description": "Catálogo WhatsApp",
         "alt": "QR Code do catálogo do WhatsApp",
-        "hint": "Aponte a câmera do WhatsApp para abrir o catálogo"
+        "hint": "Aponte a câmera do WhatsApp para abrir o catálogo",
+        "bgColor": "#ffffff",
+        "bgOpacity": 1
       }
     },
     "social": {
