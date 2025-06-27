@@ -297,28 +297,7 @@ const TrizzWebsite = () => {
   );
 
   return (
-    <div className={darkMode ? 'dark' : 'light'}>
-      <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
-      <style>{`
-        .drop-shadow-glow {
-          filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
-        }
-        
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-float-delay {
-          animation: float 3s ease-in-out infinite;
-          animation-delay: 1s;
-        }
-      `}</style>
-      {/* Navigation */}
+    <div className={darkMode ? 'dark' : ''}>
       <nav
         className={`!fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 z-40`}
       >
@@ -348,8 +327,8 @@ const TrizzWebsite = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                    activeSection === item.id 
-                      ? 'text-cyan-400 drop-shadow-glow' 
+                    activeSection === item.id
+                      ? 'text-cyan-400 drop-shadow-glow'
                       : 'text-gray-300 hover:text-white hover:drop-shadow-sm'
                   }`}
                 >
@@ -393,8 +372,8 @@ const TrizzWebsite = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left py-2 px-4 text-sm font-medium transition-colors ${
-                    activeSection === item.id 
-                      ? 'text-cyan-400' 
+                    activeSection === item.id
+                      ? 'text-cyan-400'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -405,6 +384,28 @@ const TrizzWebsite = () => {
           )}
         </div>
       </nav>
+
+      <div className={!darkMode ? 'light' : ''}>
+        <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-white">
+        <style>{`
+          .drop-shadow-glow {
+            filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
+          }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-float-delay {
+          animation: float 3s ease-in-out infinite;
+          animation-delay: 1s;
+        }
+        `}</style>
 
       {/* Hero Section */}
       <section id="home" className="pt-24 pb-16 px-4 sm:px-8 md:px-12 relative overflow-hidden min-h-screen flex items-center">
