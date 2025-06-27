@@ -1,0 +1,110 @@
+[
+  {
+    "id": "appmacro",
+    "name": "AppMacro",
+    "tagline": "Automatização Inteligente",
+    "description": "Gerador de scripts manuais para resolução de tarefas repetitivas com integrações avançadas.",
+    "features": [
+      "Grava ações para repetição autônoma",
+      "Customização posterior gigantesca", 
+      "Integrações com Excel e Links",
+      "Alto controle sobre automações"
+    ],
+    "price": "R$ 35,90",
+    "audience": "Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo",
+    "image": "/images/products/Screenshot_04.png",
+    "images": [
+      "/images/products/Screenshot_04.png"
+    ],
+    "gradient": "from-cyan-500/10 to-blue-500/10",
+    "border": "border-cyan-500/20",
+    "hoverGradient": "from-cyan-500/20 to-blue-500/20",
+    "iconColor": "text-cyan-400",
+    "hasDemo": true,
+    "demoUrl": "#",
+    "tags": ["Automação", "Python", "Excel", "Produtividade"],
+    "category": "Software"
+  },
+  {
+    "id": "dinamiky",
+    "name": "Dinamiky V0.2", 
+    "tagline": "Planilhas Profissionais",
+    "description": "Sistema avançado de planilhas financeiras com função exclusiva de soma dinâmica.",
+    "features": [
+      "Soma dinâmica inteligente",
+      "Templates financeiros profissionais",
+      "Relatórios automatizados",
+      "Integração com Google Sheets"
+    ],
+    "price": "R$ 89,90",
+    "audience": "Profissionais autônomos e pequenos negócios que precisam de controle financeiro eficiente",
+    "image": "/images/products/Screenshot_04.png",
+    "images": [
+      "/images/products/Screenshot_04.png"
+    ],
+    "gradient": "from-green-500/10 to-cyan-500/10",
+    "border": "border-green-500/20",
+    "hoverGradient": "from-green-500/20 to-cyan-500/20",
+    "iconColor": "text-green-400",
+    "hasDemo": true,
+    "demoUrl": "#",
+    "tags": ["Planilhas", "Finanças", "Google Sheets", "Relatórios"],
+    "category": "Software"
+  },
+  {
+    "id": "trizz-compact",
+    "name": "Trizz Compact",
+    "tagline": "Tomada Inteligente de Entrada",
+    "description": "2 tomadas universais padrão brasileiro com sistema de fio retrátil de 1,5 metros.",
+    "features": [
+      "2 tomadas universais NBR 14136",
+      "Fio retrátil com mola de 1,5m",
+      "Corpo compacto 8x8x4 cm",
+      "Sistema de travamento de segurança",
+      "Proteção contra sobrecarga",
+      "Indicador LED de funcionamento"
+    ],
+    "price": "R$ 149,90",
+    "audience": "Residências e escritórios que buscam organização e praticidade",
+    "image": "/images/products/Screenshot_04.png",
+    "images": [
+      "/images/products/Screenshot_04.png"
+    ],
+    "gradient": "from-blue-500/10 to-green-500/10",
+    "border": "border-blue-500/20", 
+    "hoverGradient": "from-blue-500/20 to-green-500/20",
+    "iconColor": "text-blue-400",
+    "hasDemo": false,
+    "demoUrl": null,
+    "tags": ["Tomada", "Retrátil", "Compacto", "Segurança"],
+    "category": "Hardware"
+  },
+  {
+    "id": "trizz-pro",
+    "name": "Trizz Pro",
+    "tagline": "Tomada Premium com USB",
+    "description": "3 tomadas universais + 2 portas USB-C com controle via aplicativo móvel.",
+    "features": [
+      "3 tomadas universais + 2 USB-C",
+      "Fio retrátil de 2,5m reforçado", 
+      "Controle via app iOS/Android",
+      "Base magnética para fixação",
+      "Display digital de consumo",
+      "Reset automático anti-sobrecarga"
+    ],
+    "price": "R$ 199,90",
+    "audience": "Profissionais e entusiastas de tecnologia que precisam de controle avançado",
+    "image": "/images/products/Screenshot_04.png",
+    "images": [
+      "/images/products/Screenshot_04.png"
+    ],
+    "gradient": "from-purple-500/10 to-blue-500/10",
+    "border": "border-purple-500/20",
+    "hoverGradient": "from-purple-500/20 to-blue-500/20", 
+    "iconColor": "text-purple-400",
+    "hasDemo": false,
+    "demoUrl": null,
+    "tags": ["Tomada", "Smart", "USB-C", "App", "Premium"],
+    "category": "Hardware"
+  }
+]

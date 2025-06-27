@@ -69,7 +69,7 @@ const TrizzWebsite = () => {
       id: 'appmacro',
       name: 'AppMacro',
       tagline: 'Automatização Inteligente',
-      description: 'Gerador de scripts manuais para resolução de tarefas repetitivas com integrações avançadas.',
+      description: 'Gerador de scripts para resolução de tarefas repetitivas com integrações avançadas.',
       features: [
         'Grava ações para repetição autônoma',
         'Customização posterior gigantesca',
@@ -77,6 +77,7 @@ const TrizzWebsite = () => {
         'Alto controle sobre automações'
       ],
       price: 'R$ 35,90',
+      originalPrice: 'R$ 49,90',
       audience: 'Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo',
       icon: <Bot className="w-8 h-8" />,
       gradient: 'from-cyan-500/10 to-blue-500/10',
@@ -94,13 +95,14 @@ const TrizzWebsite = () => {
         'Múltiplas versões incluídas',
         'Templates personalizáveis'
       ],
-      price: 'R$ 20,00 (Beta)',
+      price: 'R$ 19,90 (Beta)',
       originalPrice: 'R$ 49,90',
       audience: 'Profissionais do ramo financeiro que querem um nível acima de personalização',
       icon: <Database className="w-8 h-8" />,
       gradient: 'from-green-500/10 to-cyan-500/10',
       border: 'border-green-500/20',
-      isBeta: true
+      isBeta: true,
+      hasDemo: true
     },
     {
       id: 'combo',
@@ -113,8 +115,8 @@ const TrizzWebsite = () => {
         'Suporte prioritário',
         'Atualizações gratuitas'
       ],
-      price: 'R$ 54,90',
-      savings: 'Economia de R$ 30,00',
+      price: 'R$ 49,90',
+      savings: 'Economia de R$ 44,00',
       audience: 'Profissionais que precisam de automação completa e controle financeiro',
       icon: <Cog className="w-8 h-8" />,
       gradient: 'from-blue-500/10 to-green-500/10',

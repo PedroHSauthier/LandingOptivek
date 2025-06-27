@@ -1,0 +1,48 @@
+{
+    "company": {
+      "name": "TRIZZ",
+      "logo": {
+        "type": "image",
+        "src": "/images/trizz-logo.png",
+        "alt": "TRIZZ Logo",
+        "fallback": {
+          "type": "text",
+          "text": "T",
+          "background": "bg-gradient-to-br from-cyan-500 to-blue-500"
+        }
+      },
+      "tagline": "Transformando repetição em automação",
+      "description": "Pedro Henrique Sauthier - Analista de Dados e Automação"
+    },
+    "contact": {
+      "email": "pedrosauthier.trizz@gmail.com",
+      "phone": "+55 46 99109 8005",
+      "whatsapp": "+5546991098005",
+      "address": "Pato Branco, Paraná, Brasil"
+    },
+    "payments": {
+      "pix": {
+        "qrCode": "/images/qr-codes/pix-qrcode.png",
+        "key": "pedrosauthier.trizz@gmail.com",
+        "description": "PIX - TRIZZ"
+      },
+      "whatsapp": {
+        "qrCode": "/images/qr-codes/whatsapp-catalog-qrcode.png", 
+        "catalogUrl": "https://wa.me/c/5546991098005",
+        "description": "Catálogo WhatsApp"
+      }
+    },
+    "social": {
+      "linkedin": "https://linkedin.com/in/pedrohsauthier",
+      "github": "https://github.com/PedroHSauthier",
+      "email": "mailto:pedrosauthier.trizz@gmail.com"
+    },
+    "theme": {
+      "colors": {
+        "primary": "cyan",
+        "secondary": "blue", 
+        "accent": "green",
+        "background": "black"
+      }
+    }
+  }
