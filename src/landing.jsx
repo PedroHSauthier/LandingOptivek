@@ -723,21 +723,41 @@ const TrizzWebsite = () => {
                 </div>
               </div>
 
-              <div className={`mt-8 p-6 rounded-xl border ${
-                darkMode 
-                  ? 'bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20' 
-                  : 'bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200'
-              }`}>
-                <h4 className="font-semibold mb-2 text-cyan-400">Formação & Experiência</h4>
-                <ul className={`text-sm space-y-1 ${
-                  darkMode ? 'text-gray-300' : 'text-gray-700'
-                }`}>
-                  <li>• Universidade Exemplo - Curso A (2020)</li>
-                  <li>• Instituto Fictício - Curso B (2022)</li>
-                  <li>• 3 anos de experiência em atendimento ao cliente</li>
-                  <li>• Suporte técnico SINNC SISTEMAS / CERTA SISTEMAS</li>
-                  <li>• Mencionado em artigo científico</li>
-                </ul>
+              <div
+                className={`mt-8 p-6 rounded-xl border ${
+                  darkMode
+                    ? 'bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border-cyan-500/20'
+                    : 'bg-gradient-to-br from-cyan-50 to-blue-50 border-cyan-200'
+                }`}
+              >
+                <h4 className="font-semibold mb-4 text-cyan-400">
+                  Formação & Experiência
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <ul
+                    className={`text-sm space-y-1 ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}
+                  >
+                    <li className="font-medium text-cyan-400">Pedro</li>
+                    <li>• Universidade Tecnológica Federal do Paraná UTFPR</li>
+                    <li>• Curso Análise e Desenvolvimento do Sistema</li>
+                    <li>• 3 anos de experiência em atendimento ao cliente</li>
+                    <li>• Suporte técnico SINNC SISTEMAS / CERTA SISTEMAS</li>
+                    <li>• Mencionado em artigo científico</li>
+                  </ul>
+                  <ul
+                    className={`text-sm space-y-1 ${
+                      darkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}
+                  >
+                    <li className="font-medium text-cyan-400">Oliver</li>
+                    <li>• Universidade Tecnológica Federal do Paraná UTFPR</li>
+                    <li>• Curso Análise e Desenvolvimento do Sistema</li>
+                    <li>• 4 anos de experiência em desenvolvimento</li>
+                    <li>• Desenvolvedor na Linx</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
