@@ -12,9 +12,12 @@
     ],
     "price": "R$ 35,90",
     "audience": "Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo",
-    "image": "/images/products/Screenshot_04.png",
+    "image": "https://i.imgur.com/u1uy032.png",
     "images": [
-      "/images/products/Screenshot_04.png"
+      "https://i.imgur.com/u1uy032.png",
+      "https://i.imgur.com/uSmpbiN.png",
+      "https://i.imgur.com/kvDgUPc.png",
+      "https://i.imgur.com/vH5Ugw2.png"
     ],
     "gradient": "from-cyan-500/10 to-blue-500/10",
     "border": "border-cyan-500/20",
