@@ -454,7 +454,7 @@ const TrizzWebsite = () => {
                   <p className={`text-xl sm:text-2xl font-semibold ${
                     darkMode ? 'text-white' : 'text-gray-900'
                   }`}>
-                    Pedro Henrique Sauthier
+                    Pedro H. Sauthier & Oliver L. Mayer
                   </p>
                   <p className="text-lg text-cyan-400 font-medium">
                     Analista de Dados e Automação
