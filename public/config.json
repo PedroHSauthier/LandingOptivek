@@ -22,20 +22,37 @@
     },
     "payments": {
       "pix": {
-        "qrCode": "/images/qr-codes/pix-qrcode.png",
+        "qrCode": "/images/qr-code/pix-qrcode.png",
         "key": "pedrosauthier.trizz@gmail.com",
-        "description": "PIX - TRIZZ"
+        "description": "PIX - TRIZZ",
+        "alt": "QR Code do PIX",
+        "hint": "Use o aplicativo do seu banco para escanear",
+        "bgColor": "#ffffff",
+        "bgOpacity": 1
       },
       "whatsapp": {
-        "qrCode": "/images/qr-codes/whatsapp-catalog-qrcode.png", 
+        "qrCode": "/images/qr-code/whatsapp-catalog-qrcode.png",
         "catalogUrl": "https://wa.me/c/5546991098005",
-        "description": "Catálogo WhatsApp"
+        "description": "Catálogo WhatsApp",
+        "alt": "QR Code do catálogo do WhatsApp",
+        "hint": "Aponte a câmera do WhatsApp para abrir o catálogo",
+        "bgColor": "#000000",
+        "bgOpacity": 1
       }
     },
     "social": {
       "linkedin": "https://linkedin.com/in/pedrohsauthier",
       "github": "https://github.com/PedroHSauthier",
       "email": "mailto:pedrosauthier.trizz@gmail.com"
+    },
+    "availability": {
+      "monday": ["18:00", "23:00"],
+      "tuesday": ["18:00", "23:00"],
+      "wednesday": ["18:00", "23:00"],
+      "thursday": ["18:00", "23:00"],
+      "friday": ["09:00", "23:00"],
+      "saturday": ["09:00", "17:00"],
+      "sunday": []
     },
     "theme": {
       "colors": {
