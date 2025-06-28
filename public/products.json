@@ -6,13 +6,12 @@
     "tagline": "Automatização Inteligente",
     "description": "Gerador de scripts manuais para resolução de tarefas repetitivas com integrações avançadas. Sistema completo de automação para empresas que precisam reduzir tempo em atividades manuais.",
     "shortDescription": "Automatização completa para tarefas repetitivas",
-    "image": "/imgs/projeto-app.png",
+    "image": "https://i.imgur.com/u1uy032.png",
     "images": [
-      "/imgs/projeto-app.png",
-      "/imgs/projeto-app-interface.png",
-      "/imgs/projeto-app-recording.png",
-      "/imgs/projeto-app-excel.png",
-      "/imgs/projeto-app-links.png"
+      "https://i.imgur.com/u1uy032.png",
+      "https://i.imgur.com/uSmpbiN.png",
+      "https://i.imgur.com/kvDgUPc.png",
+      "https://i.imgur.com/vH5Ugw2.png"
     ],
     "features": [
       "Grava ações para repetição autônoma",
@@ -146,16 +145,16 @@
       "Dinamiky com todas as versões",
       "Suporte prioritário",
       "Atualizações gratuitas",
-      "Desconto exclusivo de R$ 30,00",
+      "Desconto exclusivo de R$ 55,00",
       "Treinamento incluído",
       "Consultoria personalizada",
       "Garantia estendida"
     ],
     "technologies": ["Python", "Google Sheets", "Apps Script", "Automação"],
     "tags": ["Combo", "Automação", "Finanças", "Completo", "Software"],
-    "price": "R$ 49,90",
+    "price": "R$ 44,90",
     "currency": "BRL",
-    "savings": "Economize R$ 44,00",
+    "savings": "Economize R$ 55,00",
     "discountPercentage": 36,
     "audience": "Profissionais que precisam de automação completa e controle financeiro",
     "targetMarket": "B2B/B2C",
