@@ -809,7 +809,7 @@ const TrizzWebsite = () => {
                   darkMode ? 'text-gray-300' : 'text-gray-700'
                 }`}>{product.description}</p>
 
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3 mb-6 flex-grow">
                   {product.features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
@@ -820,7 +820,7 @@ const TrizzWebsite = () => {
                   ))}
                 </div>
 
-                <div className="mb-6">
+                <div className="mt-auto space-y-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-cyan-400 mb-1">{product.price}</div>
                     {product.originalPrice && (
@@ -830,15 +830,13 @@ const TrizzWebsite = () => {
                       <div className="text-sm text-green-400">{product.savings}</div>
                     )}
                   </div>
-                </div>
 
-                <div className={`text-xs mb-6 leading-relaxed ${
-                  darkMode ? 'text-gray-400' : 'text-gray-600'
-                }`}>
-                  <strong>Ideal para:</strong> {product.audience}
-                </div>
+                  <div className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    <strong>Ideal para:</strong> {product.audience}
+                  </div>
 
-                <div className="space-y-3 mt-auto">
                   <button className="group w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 flex items-center justify-center gap-2">
                     Ver Detalhes
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
