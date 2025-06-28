@@ -203,11 +203,9 @@
     "tagline": "Compacto e Inteligente",
     "description": "Versão de entrada da Trizz com 2 tomadas e fio retrátil de 1,5m. Ideal para ambientes organizados e compactos, com design brasileiro moderno e segurança integrada.",
     "shortDescription": "Extensão compacta com fio retrátil de 1,5m",
-    "image": "/imgs/trizz-compact.png",
+    "image": "https://i.imgur.com/DtjRUoz.png",
     "images": [
-      "/imgs/trizz-compact.png",
-      "/imgs/trizz-compact-size.png",
-      "/imgs/trizz-compact-usage.png"
+      "https://i.imgur.com/DtjRUoz.png"
     ],
     "features": [
       "2 tomadas padrão brasileiro (NBR 14136)",
@@ -262,11 +260,9 @@
     "tagline": "Potência e Controle",
     "description": "Modelo premium da linha Trizz com 3 tomadas, 2 portas USB-C, fio retrátil de 2,5m e display digital de consumo. Indicado para profissionais exigentes que precisam de controle total e praticidade.",
     "shortDescription": "Extensão premium com USB-C e medidor de energia",
-    "image": "/imgs/trizz-pro.png",
+    "image": "https://i.imgur.com/DtjRUoz.png",
     "images": [
-      "/imgs/trizz-pro.png",
-      "/imgs/trizz-pro-closeup.png",
-      "/imgs/trizz-pro-display.png"
+      "https://i.imgur.com/DtjRUoz.png"
     ],
     "features": [
       "3 tomadas universais padrão NBR",
@@ -323,11 +319,9 @@
     "tagline": "Mais Alcance, Mesma Inteligência",
     "description": "Extensão inteligente com 5 metros de fio retrátil, 4 tomadas universais e proteção contra surtos. Ideal para áreas externas como jardins e varandas. Design robusto e seguro.",
     "shortDescription": "Extensão inteligente para uso externo",
-    "image": "/imgs/trizz-extension.png",
+    "image": "https://i.imgur.com/mbiRyLS.png",
     "images": [
-      "/imgs/trizz-extension.png",
-      "/imgs/trizz-extension-extended.png",
-      "/imgs/trizz-extension-details.png"
+      "https://i.imgur.com/mbiRyLS.png"
     ],
     "features": [
       "Fio retrátil de 5 metros",
@@ -380,10 +374,9 @@
     "tagline": "Organização sem esforço",
     "description": "Conjunto completo de organizadores magnéticos e adesivos reutilizáveis para gerenciar fios e cabos de forma prática. Ideal para ambientes minimalistas e setups organizados.",
     "shortDescription": "Kit magnético para organização de cabos",
-    "image": "/imgs/trizz-kit.png",
+    "image": "https://i.imgur.com/xuCBZgH.png",
     "images": [
-      "/imgs/trizz-kit.png",
-      "/imgs/trizz-kit-use.png"
+      "https://i.imgur.com/xuCBZgH.png"
     ],
     "features": [
       "Organizadores magnéticos com adesivo removível",

@@ -1271,10 +1271,10 @@ const TrizzWebsite = () => {
             <span className="font-bold text-xl">TRIZZ</span>
           </div>
           <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            Pedro Henrique Sauthier - Analista de Dados e Automação
+            Pedro H. Sauthier & Oliver L. Mayer
           </p>
           <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
-            © 2024 TRIZZ. Transformando repetição em automação.
+            © 2025 TRIZZ. Transformando repetição em automação.
           </p>
         </div>
       </footer>
