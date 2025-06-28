@@ -968,7 +968,7 @@ const TrizzWebsite = () => {
                   <div className={`text-2xl font-bold ${
                     darkMode ? 'text-white' : 'text-gray-900'
                   }`}>
-                    De 8 horas → 2h30min
+                    De 8 horas com 2 pessoas → 2h30min
                   </div>
                   <div className={`text-sm ${
                     darkMode ? 'text-gray-400' : 'text-gray-600'
