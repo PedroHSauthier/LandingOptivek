@@ -533,7 +533,7 @@ const TrizzWebsite = () => {
                       <Users className="w-6 h-6 text-green-400" />
                     </div>
                   </div>
-                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>100%</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>95%</div>
                   <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Clientes satisfeitos até o momento</div>
                 </div>
 
@@ -569,8 +569,8 @@ const TrizzWebsite = () => {
                       <CheckCircle className="w-6 h-6 text-purple-400" />
                     </div>
                   </div>
-                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>0</div>
-                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Custo de implementação inicial</div>
+                  <div className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Suporte</div>
+                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Fora de horário comercial padrão</div>
                 </div>
               </div>
 
