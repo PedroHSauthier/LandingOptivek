@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { Bot, Database, Cog, Zap } from 'lucide-react';
 
 const DetailsModal = ({ product, onClose }) => {
   const [visible, setVisible] = useState(false);
+
+  const iconMap = { Bot, Database, Cog, Zap };
 
   useEffect(() => {
     setVisible(true);
@@ -29,10 +32,21 @@ const DetailsModal = ({ product, onClose }) => {
         >
           &times;
         </button>
-        <h2 className="text-xl font-semibold mb-4">
-          {product.title || product.name}
-        </h2>
-        <p className="text-sm text-gray-300 mb-4">
+        <div className={`p-4 bg-gradient-to-br ${product.gradient} rounded-lg mb-6 text-center`}>
+          {iconMap[product.icon] && (
+            React.createElement(iconMap[product.icon], {
+              className: 'w-8 h-8 text-cyan-400 mx-auto mb-2'
+            })
+          )}
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">
+            {product.title || product.name}
+          </h2>
+          {product.tagline && (
+            <p className="text-sm text-gray-300">{product.tagline}</p>
+          )}
+        </div>
+
+        <p className="text-sm text-gray-300 mb-6 text-center">
           {product.shortDescription || product.description}
         </p>
         {product.specifications && (
