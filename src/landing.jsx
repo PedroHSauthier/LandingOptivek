@@ -832,12 +832,12 @@ const TrizzWebsite = () => {
                   </div>
                 )}
 
-                <div className={`p-4 bg-gradient-to-br ${product.gradient} rounded-lg mb-6 text-center`}>
-                  {iconMap[product.icon] && (
-                    React.createElement(iconMap[product.icon], { className: 'w-8 h-8 text-cyan-400 mb-2' })
-                  )}
-                  <h3 className="text-xl font-semibold mb-1">{product.name}</h3>
-                  <p className="text-sm text-gray-400">{product.tagline}</p>
+                <div className="relative mb-6 rounded-lg overflow-hidden h-24">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 </div>
 
                 <p className={`mb-6 leading-relaxed ${
