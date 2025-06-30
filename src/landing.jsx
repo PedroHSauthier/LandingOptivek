@@ -27,6 +27,7 @@ import {
   Moon
 } from 'lucide-react';
 import ImageModal from './ImageModal.jsx';
+import DetailsModal from './DetailsModal.jsx';
 
 const TrizzWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +39,7 @@ const TrizzWebsite = () => {
   const [products, setProducts] = useState([]);
   const [selectedTag, setSelectedTag] = useState('Todos');
   const [selectedImages, setSelectedImages] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [paymentQRCodes, setPaymentQRCodes] = useState([]);
   const [chatMessages, setChatMessages] = useState([
     { from: 'bot', text: 'Olá! Como posso ajudar você hoje?' }
@@ -79,6 +81,19 @@ const TrizzWebsite = () => {
       parts.push(`Domingo: ${sch.sunday[0]} às ${sch.sunday[1]}`);
     }
     return parts.join(' | ');
+  };
+
+  const handleViewDetails = (product) => {
+    const url =
+      product.detailsUrl ||
+      product.purchaseUrl ||
+      product.downloadUrl ||
+      null;
+    if (url && url !== '#') {
+      window.open(url, '_blank');
+    } else {
+      setSelectedProduct(product);
+    }
   };
 
   useEffect(() => {
@@ -857,7 +872,10 @@ const TrizzWebsite = () => {
                     )}
                   </div>
 
-                  <button className="group w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => handleViewDetails(product)}
+                    className="group w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 flex items-center justify-center gap-2"
+                  >
                     Ver Detalhes
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -1283,6 +1301,9 @@ const TrizzWebsite = () => {
       <ChatWidget />
       {selectedImages && (
         <ImageModal images={selectedImages} onClose={() => setSelectedImages(null)} />
+      )}
+      {selectedProduct && (
+        <DetailsModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
       )}
     </div>
     </div>
