@@ -130,8 +130,8 @@
   },
   {
     "id": "combo",
-    "name": "Pacote Completo TRIZZ",
-    "title": "Pacote Completo TRIZZ",
+    "name": "Pacote Completo OPTIVEK",
+    "title": "Pacote Completo OPTIVEK",
     "tagline": "Solução Integrada",
     "description": "AppMacro Professional + Dinamiky V0.2 em um pacote especial com desconto exclusivo. A solução completa para automação e gestão financeira profissional.",
     "shortDescription": "AppMacro + Dinamiky com desconto especial",
@@ -199,11 +199,11 @@
     ]
   },
   {
-    "id": "trizz-compact",
-    "name": "Trizz Compact",
-    "title": "Trizz Compact",
+    "id": "optivek-compact",
+    "name": "Optivek Compact",
+    "title": "Optivek Compact",
     "tagline": "Compacto e Inteligente",
-    "description": "Versão de entrada da Trizz com 2 tomadas e fio retrátil de 1,5m. Ideal para ambientes organizados e compactos, com design brasileiro moderno e segurança integrada.",
+    "description": "Versão de entrada da Optivek com 2 tomadas e fio retrátil de 1,5m. Ideal para ambientes organizados e compactos, com design brasileiro moderno e segurança integrada.",
     "shortDescription": "Extensão compacta com fio retrátil de 1,5m",
     "image": "https://i.imgur.com/DtjRUoz.png",
     "images": [
@@ -256,11 +256,11 @@
     ]
   },
   {
-    "id": "trizz-pro",
-    "name": "Trizz Pro",
-    "title": "Trizz Pro",
+    "id": "optivek-pro",
+    "name": "Optivek Pro",
+    "title": "Optivek Pro",
     "tagline": "Potência e Controle",
-    "description": "Modelo premium da linha Trizz com 3 tomadas, 2 portas USB-C, fio retrátil de 2,5m e display digital de consumo. Indicado para profissionais exigentes que precisam de controle total e praticidade.",
+    "description": "Modelo premium da linha Optivek com 3 tomadas, 2 portas USB-C, fio retrátil de 2,5m e display digital de consumo. Indicado para profissionais exigentes que precisam de controle total e praticidade.",
     "shortDescription": "Extensão premium com USB-C e medidor de energia",
     "image": "https://i.imgur.com/DtjRUoz.png",
     "images": [
@@ -315,9 +315,9 @@
     ]
   },
   {
-    "id": "trizz-extension",
-    "name": "Trizz Extension",
-    "title": "Trizz Extension",
+    "id": "optivek-extension",
+    "name": "Optivek Extension",
+    "title": "Optivek Extension",
     "tagline": "Mais Alcance, Mesma Inteligência",
     "description": "Extensão inteligente com 5 metros de fio retrátil, 4 tomadas universais e proteção contra surtos. Ideal para áreas externas como jardins e varandas. Design robusto e seguro.",
     "shortDescription": "Extensão inteligente para uso externo",
@@ -370,9 +370,9 @@
     ]
   },
   {
-    "id": "trizz-kit",
-    "name": "Trizz Kit de Organização",
-    "title": "Trizz Kit de Organização",
+    "id": "optivek-kit",
+    "name": "Optivek Kit de Organização",
+    "title": "Optivek Kit de Organização",
     "tagline": "Organização sem esforço",
     "description": "Conjunto completo de organizadores magnéticos e adesivos reutilizáveis para gerenciar fios e cabos de forma prática. Ideal para ambientes minimalistas e setups organizados.",
     "shortDescription": "Kit magnético para organização de cabos",

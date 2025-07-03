@@ -1,13 +1,13 @@
 {
     "company": {
-      "name": "TRIZZ",
+      "name": "OPTIVEK",
       "logo": {
         "type": "image",
-        "src": "/images/trizz-logo.png",
-        "alt": "TRIZZ Logo",
+        "src": "/images/optivek-logo-nameless.png",
+        "alt": "OPTIVEK Logo",
         "fallback": {
           "type": "text",
-          "text": "T",
+          "text": "O",
           "background": "bg-gradient-to-br from-cyan-500 to-blue-500"
         }
       },
@@ -15,7 +15,7 @@
       "description": "Pedro Henrique Sauthier - Analista de Dados e Automação"
     },
     "contact": {
-      "email": "pedrosauthier.trizz@gmail.com",
+      "email": "pedrosauthier.optivek@gmail.com",
       "phone": "+55 46 99109 8005",
       "whatsapp": "+5546991098005",
       "address": "Pato Branco, Paraná, Brasil"
@@ -23,8 +23,8 @@
     "payments": {
       "pix": {
         "qrCode": "/images/qr-code/pix-qrcode.png",
-        "key": "pedrosauthier.trizz@gmail.com",
-        "description": "PIX - TRIZZ",
+        "key": "pedrosauthier.optivek@gmail.com",
+        "description": "PIX - OPTIVEK",
         "alt": "QR Code do PIX",
         "hint": "Use o aplicativo do seu banco para escanear",
         "bgColor": "#ffffff",
@@ -43,7 +43,7 @@
     "social": {
       "linkedin": "https://linkedin.com/in/pedrohsauthier",
       "github": "https://github.com/PedroHSauthier",
-      "email": "mailto:pedrosauthier.trizz@gmail.com"
+      "email": "mailto:pedrosauthier.optivek@gmail.com"
     },
     "availability": {
       "monday": ["18:00", "23:00"],

@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import ImageModal from './ImageModal.jsx';
 
-const TrizzWebsite = () => {
+const OptivekWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showChat, setShowChat] = useState(false);
@@ -224,7 +224,7 @@ const TrizzWebsite = () => {
     let reply = '';
     switch (option) {
       case '💬 Tirar dúvidas sobre produtos':
-        reply = 'Envie suas dúvidas para pedrosauthier.trizz@gmail.com';
+        reply = 'Envie suas dúvidas para pedrosauthier.optivek@gmail.com';
         break;
       case '📱 Solicitar demonstração':
         reply = 'Agende uma demonstração pelo WhatsApp +55 46 99109-8005';
@@ -252,7 +252,7 @@ const TrizzWebsite = () => {
                 <MessageCircle className="w-4 h-4 text-white" />
               </div>
               <div>
-                <h4 className="font-semibold text-white">Suporte TRIZZ</h4>
+                <h4 className="font-semibold text-white">Suporte OPTIVEK</h4>
                 <p className="text-xs text-gray-400">{isOnline ? 'Online agora' : 'Não online no momento'}</p>
               </div>
             </div>
@@ -335,12 +335,12 @@ const TrizzWebsite = () => {
             <div className="flex items-center space-x-3">
               <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
                 <img
-                  src="/images/trizz-logo.png"
-                  alt="TRIZZ Logo"
+                  src="/images/optivek-logo-nameless.png"
+                  alt="OPTIVEK Logo"
                   className="w-10 h-10 rounded-full bg-black p-1"
                 />
               </div>
-              <span className="font-bold text-xl">TRIZZ</span>
+              <span className="font-bold text-xl">OPTIVEK</span>
             </div>
 
             {/* Desktop Menu */}
@@ -437,14 +437,14 @@ const TrizzWebsite = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
                     <img
-                      src="/images/trizz-logo.png"
-                      alt="TRIZZ Logo"
+                      src="/images/optivek-logo-nameless.png"
+                      alt="OPTIVEK Logo"
                       className="w-20 h-20 rounded-full bg-black p-1"
                     />
                   </div>
                   <div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
-                      TRIZZ
+                      OPTIVEK
                     </h1>
                     <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mt-2"></div>
                   </div>
@@ -1092,12 +1092,12 @@ const TrizzWebsite = () => {
                     <Mail className="w-6 h-6 text-cyan-400" />
                     <div>
                       <p className={`font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>Email</p>
-                      <a href="mailto:pedrosauthier.trizz@gmail.com" className={`transition-colors ${
+                      <a href="mailto:pedrosauthier.optivek@gmail.com" className={`transition-colors ${
                         darkMode 
                           ? 'text-gray-300 hover:text-cyan-400' 
                           : 'text-gray-700 hover:text-cyan-500'
                       }`}>
-                        pedrosauthier.trizz@gmail.com
+                        pedrosauthier.optivek@gmail.com
                       </a>
                     </div>
                   </div>
@@ -1263,18 +1263,18 @@ const TrizzWebsite = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full">
               <img
-                src="/images/trizz-logo.png"
-                alt="TRIZZ Logo"
+                src="/images/optivek-logo-nameless.png"
+                alt="OPTIVEK Logo"
                 className="w-10 h-10 rounded-full bg-black p-1"
               />
             </div>
-            <span className="font-bold text-xl">TRIZZ</span>
+            <span className="font-bold text-xl">OPTIVEK</span>
           </div>
           <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
             Pedro H. Sauthier & Oliver L. Mayer
           </p>
           <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
-            © 2025 TRIZZ. Transformando repetição em automação.
+            © 2025 OPTIVEK. Transformando repetição em automação.
           </p>
         </div>
       </footer>
@@ -1289,4 +1289,4 @@ const TrizzWebsite = () => {
   );
 };
 
-export default TrizzWebsite;
+export default OptivekWebsite;
