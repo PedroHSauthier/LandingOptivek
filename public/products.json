@@ -41,6 +41,7 @@
     "documentationUrl": "#",
     "supportUrl": "#",
     "icon": "Bot",
+    "route": "/appmacro",
     "gradient": "from-cyan-500/10 to-blue-500/10",
     "border": "border-cyan-500/20",
     "benefits": [
@@ -106,6 +107,7 @@
     "documentationUrl": "#",
     "supportUrl": "#",
     "icon": "Database",
+    "route": "/dinamiky",
     "gradient": "from-green-500/10 to-cyan-500/10",
     "border": "border-green-500/20",
     "benefits": [

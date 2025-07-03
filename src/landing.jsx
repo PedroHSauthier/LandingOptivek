@@ -873,7 +873,7 @@ const OptivekWebsite = () => {
                   </div>
 
                   <button
-                    onClick={() => handleViewDetails(product)}
+                    onClick={() => window.location.href = product.route}
                     className="group w-full px-4 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 flex items-center justify-center gap-2"
                   >
                     Ver Detalhes
