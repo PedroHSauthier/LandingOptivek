@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import OptivekWebsite from './landing.jsx';
-import OptivekMacroLanding from './appmacro.jsx';
-import OptivekPlanilhaLanding from './dinamiky.jsx';
+import OptivekWebsite from './pages/LandingPage.jsx';
+import OptivekMacroLanding from './pages/AppMacroPage.jsx';
+import OptivekPlanilhaLanding from './pages/DinamikyPage.jsx';
 
 function App() {
   return (
