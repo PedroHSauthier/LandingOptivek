@@ -41,7 +41,7 @@
     "documentationUrl": "#",
     "supportUrl": "#",
     "icon": "Bot",
-    "route": "/appmacro",
+    "route": "/macrosuite",
     "gradient": "from-cyan-500/10 to-blue-500/10",
     "border": "border-cyan-500/20",
     "benefits": [
