@@ -8,7 +8,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<OptivekWebsite />} />
-      <Route path="/appmacro" element={<OptivekMacroLanding />} />
+      <Route path="/macrosuite" element={<OptivekMacroLanding />} />
       <Route path="/dinamiky" element={<OptivekPlanilhaLanding />} />
     </Routes>
   );
