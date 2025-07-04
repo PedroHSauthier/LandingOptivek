@@ -165,12 +165,12 @@ const OptivekWebsite = () => {
   }, []);
 
   useEffect(() => {
-    fetch('/src/data/products.json')
+    fetch('/data/products.json')
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch(() => {});
 
-    fetch('/src/data/config.json')
+    fetch('/data/config.json')
       .then((res) => res.json())
       .then((data) => {
         const codes = [];
@@ -186,7 +186,7 @@ const OptivekWebsite = () => {
         if (data.payments?.whatsapp) {
           codes.push({
             alt: data.payments.whatsapp.alt || 'WhatsApp',
-            src: data.payments.whatsapp.qrCode.replace('/images/', '/src/assets/images/'),
+            src: data.payments.whatsapp.qrCode,
             hint: data.payments.whatsapp.hint,
             bgColor: data.payments.whatsapp.bgColor,
             bgOpacity: data.payments.whatsapp.bgOpacity,
@@ -350,7 +350,7 @@ const OptivekWebsite = () => {
             <div className="flex items-center space-x-3">
               <div className="p-0.5 bg-gradient-to-r from-green-500 to-blue-500 rounded-full">
                 <img
-                  src="/src/assets/images/optivek-logo-nameless.png"
+                  src="/images/optivek-logo-nameless.png"
                   alt="OPTIVEK Logo"
                   className="w-10 h-10 rounded-full bg-cian p-1"
                 />
@@ -452,7 +452,7 @@ const OptivekWebsite = () => {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-0.5 bg-gradient-to-r from-green-500 to-blue-500 rounded-full">
                     <img
-                      src="/src/assets/images/optivek-logo-nameless.png"
+                      src="/images/optivek-logo-nameless.png"
                       alt="OPTIVEK Logo"
                       className="w-20 h-20 rounded-full bg-cian p-1"
                     />
@@ -1281,7 +1281,7 @@ const OptivekWebsite = () => {
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="p-0.5 bg-gradient-to-r from-green-500 to-blue-500 rounded-full">
               <img
-                src="/src/assets/images/optivek-logo-nameless.png"
+                src="/images/optivek-logo-nameless.png"
                 alt="OPTIVEK Logo"
                 className="w-10 h-10 rounded-full bg-cian p-1"
               />

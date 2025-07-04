@@ -22,7 +22,7 @@
     },
     "payments": {
       "pix": {
-        "qrCode": "/src/assets/images/qr-code/pix-qrcode.png",
+        "qrCode": "/images/qr-code/pix-qrcode.png",
         "key": "pedrosauthier.optivek@gmail.com",
         "description": "PIX - OPTIVEK",
         "alt": "QR Code do PIX",
