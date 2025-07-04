@@ -445,7 +445,7 @@ const OptivekMacroLanding = () => {
                       className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:scale-105 transition-all duration-300 drop-shadow-glow flex items-center justify-center gap-2"
                     >
                       <Download className="w-5 h-5" />
-                      Baixar Agora - R$ 67,90
+                      Baixar Agora - R$ 35,90
                     </button>
                     <button
                       onClick={() => scrollToSection('features')}
@@ -699,14 +699,14 @@ const OptivekMacroLanding = () => {
             <div className="mb-12">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <span className={`text-2xl line-through ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                  R$ 149,90
+                  R$ 89,90
                 </span>
                 <span className="text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
-                  R$ 67,90
+                  R$ 35,90
                 </span>
               </div>
               <p className="text-lg text-green-400 font-medium mb-2">
-                Economia de R$ 82,00 (55% OFF)
+                Economia de R$ 54,00 (40% OFF)
               </p>
               <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 Licença completa • Atualizações incluídas • Suporte técnico

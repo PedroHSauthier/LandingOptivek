@@ -26,7 +26,7 @@
     "technologies": ["Python", "OpenCV", "Pandas", "GUI Tkinter", "JSON"],
     "tags": ["Automação", "Python", "Produtividade", "Software"],
     "price": "R$ 35,90",
-    "originalPrice": "R$ 49,90",
+    "originalPrice": "R$ 89,90",
     "currency": "BRL",
     "audience": "Empresas de pequeno e médio porte com falta de profissionais para tarefas que demandam muito tempo",
     "targetMarket": "B2B",
@@ -92,7 +92,7 @@
     "technologies": ["Google Sheets", "Apps Script", "JavaScript", "HTML/CSS"],
     "tags": ["Planilhas", "Finanças", "Google Sheets", "Gestão", "Software"],
     "price": "R$ 19,90",
-    "originalPrice": "R$ 49,90",
+    "originalPrice": "R$ 59,90",
     "currency": "BRL",
     "audience": "Profissionais do ramo financeiro que querem um nível acima de personalização",
     "targetMarket": "B2C",
@@ -153,7 +153,7 @@
       "Dinamiky com todas as versões",
       "Suporte prioritário",
       "Atualizações gratuitas",
-      "Desconto exclusivo de R$ 55,00",
+      "Desconto exclusivo de R$ 99,00",
       "Treinamento incluído",
       "Consultoria personalizada",
       "Garantia estendida",
@@ -163,7 +163,7 @@
     "tags": ["Combo", "Automação", "Finanças", "Completo", "Software"],
     "price": "R$ 44,90",
     "currency": "BRL",
-    "savings": "Economize R$ 55,00",
+    "savings": "Economize R$ 99,00",
     "discountPercentage": 36,
     "audience": "Profissionais que precisam de automação completa e controle financeiro",
     "targetMarket": "B2B/B2C",
@@ -198,230 +198,6 @@
       "Gestão financeira integrada",
       "Otimização de workflows",
       "Controle empresarial completo"
-    ]
-  },
-  {
-    "id": "optivek-compact",
-    "name": "Optivek Compact",
-    "title": "Optivek Compact",
-    "tagline": "Compacto e Inteligente",
-    "description": "Versão de entrada da Optivek com 2 tomadas e fio retrátil de 1,5m. Ideal para ambientes organizados e compactos, com design brasileiro moderno e segurança integrada.",
-    "shortDescription": "Extensão compacta com fio retrátil de 1,5m",
-    "image": "https://i.imgur.com/DtjRUoz.png",
-    "images": [
-      "https://i.imgur.com/DtjRUoz.png"
-    ],
-    "features": [
-      "2 tomadas padrão brasileiro (NBR 14136)",
-      "Fio retrátil de 1,5 metros com mola reforçada",
-      "Sistema de trava de segurança",
-      "Design compacto e portátil",
-      "Proteção contra sobrecarga",
-      "Corpo em ABS de alta resistência",
-      "Indicador LED de funcionamento"
-    ],
-    "technologies": ["Sistema Mecânico", "Certificação INMETRO"],
-    "tags": ["Elétrica", "Organização", "Portátil", "Hardware"],
-    "price": "R$ 149,90",
-    "currency": "BRL",
-    "audience": "Usuários que buscam organização em casa ou escritório com economia de espaço",
-    "targetMarket": "B2C",
-    "category": "Extensão Inteligente",
-    "hasDemo": false,
-    "isBeta": false,
-    "isPopular": true,
-    "isNew": true,
-    "status": "available",
-    "purchaseUrl": "#",
-    "catalogUrl": "#",
-    "supportUrl": "#",
-    "icon": "Zap",
-    "gradient": "from-gray-700/10 to-gray-900/10",
-    "border": "border-gray-700/20",
-    "benefits": [
-      "Economia de espaço com organização inteligente",
-      "Alta durabilidade e segurança certificada",
-      "Ideal para ambientes reduzidos"
-    ],
-    "specifications": {
-      "voltage": "110V/220V",
-      "amperage": "10A máximo",
-      "cable_length": "1,5m",
-      "certification": "INMETRO NBR 14136",
-      "warranty": "2 anos",
-      "color": "Branco, Preto, Cinza"
-    },
-    "useCases": [
-      "Organização de mesas de trabalho",
-      "Uso doméstico inteligente",
-      "Ambientes minimalistas"
-    ]
-  },
-  {
-    "id": "optivek-pro",
-    "name": "Optivek Pro",
-    "title": "Optivek Pro",
-    "tagline": "Potência e Controle",
-    "description": "Modelo premium da linha Optivek com 3 tomadas, 2 portas USB-C, fio retrátil de 2,5m e display digital de consumo. Indicado para profissionais exigentes que precisam de controle total e praticidade.",
-    "shortDescription": "Extensão premium com USB-C e medidor de energia",
-    "image": "https://i.imgur.com/DtjRUoz.png",
-    "images": [
-      "https://i.imgur.com/DtjRUoz.png"
-    ],
-    "features": [
-      "3 tomadas universais padrão NBR",
-      "2 portas USB-C de carregamento rápido",
-      "Fio retrátil de 2,5 metros com cabo reforçado",
-      "Display digital com consumo energético",
-      "Base magnética para superfícies metálicas",
-      "Sistema anti-sobrecarga com reset automático",
-      "Preparado para integração futura com app (IoT)"
-    ],
-    "technologies": ["Eletrônica", "USB-C", "Medidor de Energia", "IoT Ready"],
-    "tags": ["Premium", "Tecnologia", "Alta Demanda", "Hardware"],
-    "price": "R$ 199,90",
-    "currency": "BRL",
-    "savings": "Economize R$ 50,00",
-    "discountPercentage": 25,
-    "audience": "Profissionais exigentes, home offices avançados, entusiastas de tecnologia",
-    "targetMarket": "B2C / B2B",
-    "category": "Extensão Inteligente Premium",
-    "hasDemo": false,
-    "isBeta": false,
-    "isPopular": false,
-    "isNew": true,
-    "status": "available",
-    "purchaseUrl": "#",
-    "catalogUrl": "#",
-    "supportUrl": "#",
-    "icon": "Zap",
-    "gradient": "from-indigo-600/10 to-blue-700/10",
-    "border": "border-indigo-600/20",
-    "benefits": [
-      "Controle total sobre consumo elétrico",
-      "Design inteligente e potente",
-      "Ideal para profissionais e setups exigentes"
-    ],
-    "specifications": {
-      "voltage": "110V/220V",
-      "amperage": "10A máximo",
-      "cable_length": "2,5m",
-      "certification": "INMETRO NBR 14136",
-      "warranty": "2 anos",
-      "color": "Preto, Cinza"
-    },
-    "useCases": [
-      "Home offices avançados",
-      "Estações de trabalho completas",
-      "Setup de produtividade máxima"
-    ]
-  },
-  {
-    "id": "optivek-extension",
-    "name": "Optivek Extension",
-    "title": "Optivek Extension",
-    "tagline": "Mais Alcance, Mesma Inteligência",
-    "description": "Extensão inteligente com 5 metros de fio retrátil, 4 tomadas universais e proteção contra surtos. Ideal para áreas externas como jardins e varandas. Design robusto e seguro.",
-    "shortDescription": "Extensão inteligente para uso externo",
-    "image": "https://i.imgur.com/mbiRyLS.png",
-    "images": [
-      "https://i.imgur.com/mbiRyLS.png"
-    ],
-    "features": [
-      "Fio retrátil de 5 metros",
-      "4 tomadas espaçadas para uso simultâneo",
-      "Proteção contra surtos elétricos",
-      "Design resistente à umidade leve (uso externo)",
-      "Sistema de trava para segurança"
-    ],
-    "technologies": ["Sistema Retrátil", "Proteção Contra Surtos"],
-    "tags": ["Jardim", "Churrasqueira", "Ambientes Externos", "Hardware"],
-    "price": "R$ 149,90",
-    "currency": "BRL",
-    "audience": "Usuários que precisam de alcance e segurança em ambientes abertos",
-    "targetMarket": "B2C",
-    "category": "Extensão Retrátil Externa",
-    "hasDemo": false,
-    "isBeta": false,
-    "isPopular": false,
-    "isNew": true,
-    "status": "available",
-    "purchaseUrl": "#",
-    "catalogUrl": "#",
-    "supportUrl": "#",
-    "icon": "Zap",
-    "gradient": "from-orange-600/10 to-yellow-500/10",
-    "border": "border-orange-600/20",
-    "benefits": [
-      "Ideal para áreas externas organizadas",
-      "Evita acidentes com fios soltos",
-      "Durabilidade e segurança reforçadas"
-    ],
-    "specifications": {
-      "voltage": "110V/220V",
-      "amperage": "10A máximo",
-      "cable_length": "5m",
-      "certification": "INMETRO NBR 14136",
-      "warranty": "2 anos",
-      "resistance": "Resistente à umidade leve"
-    },
-    "useCases": [
-      "Jardins e quintais",
-      "Varandas e churrasqueiras",
-      "Eventos externos com eletrônicos"
-    ]
-  },
-  {
-    "id": "optivek-kit",
-    "name": "Optivek Kit de Organização",
-    "title": "Optivek Kit de Organização",
-    "tagline": "Organização sem esforço",
-    "description": "Conjunto completo de organizadores magnéticos e adesivos reutilizáveis para gerenciar fios e cabos de forma prática. Ideal para ambientes minimalistas e setups organizados.",
-    "shortDescription": "Kit magnético para organização de cabos",
-    "image": "https://i.imgur.com/xuCBZgH.png",
-    "images": [
-      "https://i.imgur.com/xuCBZgH.png"
-    ],
-    "features": [
-      "Organizadores magnéticos com adesivo removível",
-      "Material de alta aderência e reutilizável",
-      "Design discreto e eficiente",
-      "Inclui guia de instalação e boas práticas"
-    ],
-    "technologies": ["Magnético", "Fixação inteligente"],
-    "tags": ["Organização", "Minimalismo", "Cabos", "Hardware"],
-    "price": "R$ 59,90",
-    "originalPrice": "R$ 89,90",
-    "currency": "BRL",
-    "audience": "Qualquer pessoa que deseje um ambiente mais limpo e organizado",
-    "targetMarket": "B2C",
-    "category": "Organização de Cabos",
-    "hasDemo": false,
-    "isBeta": false,
-    "isPopular": false,
-    "isNew": true,
-    "status": "available",
-    "purchaseUrl": "#",
-    "catalogUrl": "#",
-    "supportUrl": "#",
-    "icon": "List",
-    "gradient": "from-yellow-500/10 to-green-500/10",
-    "border": "border-yellow-500/20",
-    "benefits": [
-      "Ambientes visualmente limpos",
-      "Sem mais fios espalhados",
-      "Reutilizável e fácil de instalar"
-    ],
-    "specifications": {
-      "kit_content": "6 organizadores, 6 adesivos reutilizáveis",
-      "material": "Plástico ABS + Imã",
-      "installation": "Sem ferramentas",
-      "warranty": "1 ano"
-    },
-    "useCases": [
-      "Organização de mesas e racks",
-      "Ambientes minimalistas",
-      "Cabos de escritório ou casa"
     ]
   }  
 ]
