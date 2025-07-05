@@ -173,6 +173,7 @@
     "isPopular": true,
     "isNew": false,
     "status": "available",
+    "route": "/pacotepromo",
     "downloadUrl": "#",
     "demoUrl": "#",
     "documentationUrl": "#",
@@ -184,7 +185,7 @@
       "Máximo ROI com desconto exclusivo",
       "Solução completa integrada",
       "Suporte prioritário",
-      "Economia de R$ 30,90"
+      "Economia de R$ 99,00"
     ],
     "specifications": {
       "platform": "Windows + Google Sheets",

@@ -37,6 +37,8 @@ import {
   ChevronRight,
   Activity,
   Grid3x3,
+  Sun,
+  Moon,
   Maximize
 } from 'lucide-react';
 
@@ -328,9 +330,13 @@ const OptivekMacroLanding = () => {
               {/* Theme Toggle */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="p-2"
               >
-                {darkMode ? '🌞' : '🌙'}
+                {darkMode ? (
+                  <Sun className="w-6 h-6 text-white" />
+                ) : (
+                  <Moon className="w-6 h-6 text-black" />
+                )}
               </button>
 
               {/* Mobile Menu Button */}

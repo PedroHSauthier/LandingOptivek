@@ -33,7 +33,9 @@ import {
   Monitor,
   FileBarChart,
   Import,
-  Gauge
+  Gauge,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 const OptivekPlanilhaLanding = () => {
@@ -361,9 +363,13 @@ const OptivekPlanilhaLanding = () => {
               {/* Theme Toggle */}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="p-2"
               >
-                {darkMode ? '🌞' : '🌙'}
+                {darkMode ? (
+                  <Sun className="w-6 h-6 text-white" />
+                ) : (
+                  <Moon className="w-6 h-6 text-black" />
+                )}
               </button>
 
               {/* Mobile Menu Button */}
