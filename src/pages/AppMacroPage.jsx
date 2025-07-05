@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { 
   Play, 
   Square, 
@@ -43,6 +44,7 @@ import {
 } from 'lucide-react';
 
 const OptivekMacroLanding = () => {
+  useDocumentTitle('App Macro Suite - Automação Desktop | OPTIVEK');
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);

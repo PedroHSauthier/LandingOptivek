@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { 
   BarChart3,
   PieChart,
@@ -39,6 +40,7 @@ import {
 } from 'lucide-react';
 
 const OptivekPlanilhaLanding = () => {
+  useDocumentTitle('Dinamiky V0.2 - Planilha Financeira | OPTIVEK');
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);

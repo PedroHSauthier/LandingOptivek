@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import {
   Code, 
   Database, 
@@ -30,6 +31,7 @@ import ImageModal from '../components/ImageModal.jsx';
 import DetailsModal from '../components/DetailsModal.jsx';
 
 const OptivekWebsite = () => {
+  useDocumentTitle('OPTIVEK Systems - Soluções em Automação e Análise de Dados');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [showChat, setShowChat] = useState(false);
@@ -469,7 +471,7 @@ const OptivekWebsite = () => {
                   <p className={`text-xl sm:text-2xl font-semibold ${
                     darkMode ? 'text-white' : 'text-gray-900'
                   }`}>
-                    Pedro H. Sauthier & Oliver L. Mayer
+                    Pedro H. Sauthier
                   </p>
                   <p className="text-lg text-cyan-400 font-medium">
                     Analista de Dados e Automação
@@ -748,7 +750,7 @@ const OptivekWebsite = () => {
                 <h4 className="font-semibold mb-4 text-cyan-400">
                   Formação & Experiência
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
                   <ul
                     className={`text-sm space-y-1 ${
                       darkMode ? 'text-gray-300' : 'text-gray-700'
@@ -760,17 +762,6 @@ const OptivekWebsite = () => {
                     <li>• 3 anos de experiência em atendimento ao cliente</li>
                     <li>• Suporte técnico SINNC SISTEMAS / CERTA SISTEMAS</li>
                     <li>• Mencionado em artigo científico</li>
-                  </ul>
-                  <ul
-                    className={`text-sm space-y-1 ${
-                      darkMode ? 'text-gray-300' : 'text-gray-700'
-                    }`}
-                  >
-                    <li className="font-medium text-cyan-400">Oliver</li>
-                    <li>• Universidade Tecnológica Federal do Paraná UTFPR</li>
-                    <li>• Curso Análise e Desenvolvimento do Sistema</li>
-                    <li>• 4 anos de experiência em desenvolvimento</li>
-                    <li>• Desenvolvedor na Linx</li>
                   </ul>
                 </div>
               </div>
@@ -1289,7 +1280,7 @@ const OptivekWebsite = () => {
             <span className="font-bold text-xl">OPTIVEK</span>
           </div>
           <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            Pedro H. Sauthier & Oliver L. Mayer
+            Pedro H. Sauthier
           </p>
           <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
             © 2025 OPTIVEK. Transformando repetição em automação.

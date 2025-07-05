@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import { 
   Package,
   Zap,
@@ -52,6 +53,7 @@ import {
 } from 'lucide-react';
 
 const OptivekPacoteCompleto = () => {
+  useDocumentTitle('Pacote Completo - AppMacro + Dinamiky | OPTIVEK');
   const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
