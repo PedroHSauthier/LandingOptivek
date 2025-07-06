@@ -1280,7 +1280,7 @@ const OptivekWebsite = () => {
             <span className="font-bold text-xl">OPTIVEK</span>
           </div>
           <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-            Pedro H. Sauthier
+            Pedro Henrique Sauthier Ferraz de Campos
           </p>
           <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>
             © 2025 OPTIVEK. Transformando repetição em automação.
